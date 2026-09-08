@@ -2,38 +2,38 @@
 
 # Foam
 
-**👋 Welcome to your new Foam Knowledge Base!**
+**👋 欢迎使用你的全新 Foam 知识库！**
 
-## Getting started
+## 开始使用
 
-This documentation assumes that you have a GitHub account and have [Visual Studio Code](https://code.visualstudio.com/) installed on your Linux/macOS/Windows machine.
+本文档假设你拥有 GitHub 账户，并已在 Linux/macOS/Windows 设备上安装 [Visual Studio Code](https://code.visualstudio.com/)。
 
-1. If you haven't yet, browse over to the main [Foam documentation](https://foambubble.github.io/foam) to get an idea of what Foam is and how to use it.
-2. Press "Use this template" button at [foam-template](https://github.com/foambubble/foam-template/generate) (that's this repository!) to fork it to your own GitHub account. If you want to keep your thoughts to yourself, remember to set the repository private.
-3. [Clone the repository to your local machine](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) and open it in VS Code.
+1. 如果还没有了解过，请先浏览 Foam 的主要[文档](https://foambubble.github.io/foam)，了解如何使用 Foam。
+2. 在 [foam-template](https://github.com/foambubble/foam-template/generate)（也就是本仓库）的页面上点击 **Use this template**，将它复制到你自己的 GitHub 账户下。如果你希望笔记保持私密，请记得将仓库设置为私有。
+3. [将仓库克隆到本地设备](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)，然后在 VS Code 中打开它。
 
-    *Open the repository as a folder using the `File > Open...` menu item.*
+    *使用 `File > Open...` 菜单项，以文件夹的形式打开仓库。*
 
-4. When prompted to install recommended extensions, click **Install all** (or **Show Recommendations** if you want to review and install them one by one)
+4. 当系统提示安装推荐扩展时，点击 **Install all**（如果你希望逐个查看并安装，也可以点击 **Show Recommendations**）。
 
-After setting up the repository, head to [getting started](./getting-started.md) to get familiar with your new knowledge base!
+完成仓库设置后，请阅读[开始使用](./getting-started.md)，熟悉你的新知识库！
 
-To learn more about how to use **Foam**, read the [Recipes](https://docs.foam.md/recipes/recipes/) bubbles of the Foam documentation workspace.
+如需进一步了解如何使用 **Foam**，请阅读 Foam 文档工作区中的 [Recipes](https://docs.foam.md/recipes/recipes/) 笔记。
 
-And remember that you can always join our [Foam community on Discord](https://foambubble.github.io/join-discord/g)!
+你也可以随时加入我们的 [Foam Discord 社区](https://foambubble.github.io/join-discord/g)!
 
-## Using Foam
+## 使用 Foam
 
-We've created a few Bubbles (Markdown documents) to get you started.
+我们创建了一些 Bubbles（Markdown 文档），帮助你开始使用：
 
-- [inbox](./inbox.md) - a place to write down quick notes to be categorized later
-- [getting-started](./getting-started.md) - learn how to use your Foam workspace
-- [todo](./todo.md) - a place to keep track of things to do
+- [inbox](./inbox.md) - 记录临时笔记，稍后再进行分类
+- [getting-started](./getting-started.md) - 学习如何使用 Foam 工作区
+- [todo](./todo.md) - 记录待办事项
 
-In the `docs` directory you can find everything you need to learn the basics of Foam.
+在 `docs` 目录中，你可以找到学习 Foam 基础知识所需的全部内容。
 
-## Submitting Issues
+## 提交问题
 
-As you may have noticed, issues are disabled. With the goal to keep the project fairly easy to maintain, please file your issues in the main Foam repository:
+如你所见，本仓库已禁用 Issues。为了便于维护项目，请将问题提交到 Foam 主仓库：
 
 > <https://github.com/foambubble/foam>

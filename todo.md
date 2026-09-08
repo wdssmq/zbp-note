@@ -1,8 +1,8 @@
 # Todo
 
-You can create todos in Foam.
+你可以在 Foam 中创建待办事项。
 
-- [x] This is an example of a todo list item that's complete
-- [ ] This one is not completed yet
-- [ ] You can mark it completed by pressing `Option`+`C` (or `Alt`+`C`) when your cursor is on this line
-  - [ ] You can also select multiple lines and mark them all at once!
+- [x] 这是一个已完成的待办事项示例
+- [ ] 这一项尚未完成
+- [ ] 将光标放在此行时，按下 `Option`+`C`（或 `Alt`+`C`）即可将其标记为已完成
+  - [ ] 你也可以选择多行，然后一次性将它们全部标记为已完成！

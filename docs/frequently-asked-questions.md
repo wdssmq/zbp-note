@@ -1,39 +1,39 @@
-# Frequently Asked Questions
+# 常见问题
 
-- [Frequently Asked Questions](#frequently-asked-questions)
-  - [Links/Graphs/BackLinks don't work. How do I enable them?](#linksgraphsbacklinks-dont-work-how-do-i-enable-them)
-  - [I don't want Foam enabled for all my workspaces](#i-dont-want-foam-enabled-for-all-my-workspaces)
-  - [I want to publish the graph view to GitHub pages or Vercel](#i-want-to-publish-the-graph-view-to-github-pages-or-vercel)
-  - [Does Foam collect any data?](#does-foam-collect-any-data)
+- [常见问题](#常见问题)
+  - [链接/图谱/反向链接无法使用，如何启用](#链接图谱反向链接无法使用如何启用)
+  - [我不希望 Foam 在所有工作区中启用](#我不希望-foam-在所有工作区中启用)
+  - [如何将图谱视图发布到 GitHub Pages 或 Vercel](#如何将图谱视图发布到-github-pages-或-vercel)
+  - [Foam 会收集数据吗](#foam-会收集数据吗)
 
-## Links/Graphs/BackLinks don't work. How do I enable them?
+## 链接/图谱/反向链接无法使用，如何启用
 
-- Ensure that you have all the [[recommended-extensions]] installed in Visual Studio Code
-- Reload Visual Studio Code by running `Cmd` + `Shift` + `P` (`Ctrl` + `Shift` + `P` for Windows), type "reload" and run the **Developer: Reload Window** command to for the updated extensions take effect
-- Check the formatting rules for links on [[wikilinks]]
+- 确保已在 Visual Studio Code 中安装所有[[recommended-extensions]]。
+- 运行 `Cmd` + `Shift` + `P`（Windows 使用 `Ctrl` + `Shift` + `P`），输入“reload”，然后运行 **Developer: Reload Window** 命令，使更新后的扩展生效。
+- 检查 [[wikilinks]] 中的链接格式规则。
 
-## I don't want Foam enabled for all my workspaces
+## 我不希望 Foam 在所有工作区中启用
 
-Any extension you install in Visual Studio Code is enabled by default. Given the philosophy of Foam, it works out of the box without doing any configuration upfront. In case you want to disable Foam for a specific workspace, or disable Foam by default and enable it for specific workspaces, it is advised to follow the best practices as [documented by Visual Studio Code](https://code.visualstudio.com/docs/editor/extension-marketplace#_manage-extensions)
+在 Visual Studio Code 中安装的任何扩展默认都会启用。按照 Foam 的设计理念，它无需预先配置即可开箱即用。如果你希望在特定工作区中禁用 Foam，或者默认禁用 Foam、仅在特定工作区中启用，建议遵循 [Visual Studio Code 文档](https://code.visualstudio.com/docs/editor/extension-marketplace#_manage-extensions)中介绍的最佳实践。
 
-## I want to publish the graph view to GitHub pages or Vercel
+## 如何将图谱视图发布到 GitHub Pages 或 Vercel
 
-If you want a different front-end look to your published foam and a way to see your graph view, we'd recommend checking out these templates:
+如果你希望为发布后的 Foam 使用不同的前端样式，并能够查看图谱视图，建议了解以下模板：
 
-- [foam-gatsby](https://github.com/mathieudutour/foam-gatsby-template) by [Mathieu Dutour](https://github.com/mathieudutour)
-- [foam-gatsby-kb](https://github.com/hikerpig/foam-template-gatsby-kb) by [hikerpig](https://github.com/hikerpig)
+- [foam-gatsby](https://github.com/mathieudutour/foam-gatsby-template)，作者：[Mathieu Dutour](https://github.com/mathieudutour)
+- [foam-gatsby-kb](https://github.com/hikerpig/foam-template-gatsby-kb)，作者：[hikerpig](https://github.com/hikerpig)
 
-## Does Foam collect any data?
+## Foam 会收集数据吗
 
-Foam collects anonymous usage data (which commands are used, which features are configured) to help prioritize development. No note content, file names, or personal information is ever collected.
+Foam 会收集匿名使用数据（例如使用了哪些命令、配置了哪些功能），以帮助确定开发优先级。Foam 从不会收集笔记内容、文件名或个人信息。
 
-Foam follows VS Code's global telemetry setting (`telemetry.telemetryLevel`). If you have disabled telemetry in VS Code, Foam will not send any data.
+Foam 遵循 VS Code 的全局遥测设置（`telemetry.telemetryLevel`）。如果你已在 VS Code 中禁用遥测，Foam 将不会发送任何数据。
 
-To inspect what is being sent, set the Foam log level to `Debug` (run `Foam: Set log level` from the command palette) — telemetry events will appear in the Foam output channel. See [[foam-logging-in-vscode]] for details.
+如需查看发送的内容，请将 Foam 日志级别设置为 `Debug`（在命令面板中运行 `Foam: Set log level`），遥测事件会显示在 Foam 输出通道中。详情请参阅 [[foam-logging-in-vscode]]。
 
-See [[telemetry]] for the full list of collected data and opt-out instructions.
+有关收集数据的完整列表和退出方法，请参阅 [[telemetry]]。
 
-[recommended-extensions]: getting-started/recommended-extensions.md 'Recommended Extensions'
-[wikilinks]: features/wikilinks.md 'Wikilinks'
-[telemetry]: tools/telemetry.md 'Telemetry'
-[foam-logging-in-vscode]: tools/foam-logging-in-vscode.md 'Foam logging in VsCode'
+[recommended-extensions]: getting-started/recommended-extensions.md "Recommended Extensions"
+[wikilinks]: features/wikilinks.md "Wikilinks"
+[foam-logging-in-vscode]: tools/foam-logging-in-vscode.md "Foam logging in VsCode"
+[telemetry]: tools/telemetry.md "Telemetry"

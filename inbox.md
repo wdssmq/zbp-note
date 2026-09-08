@@ -1,12 +1,14 @@
 # Inbox
 
-- Here you can write disorganised notes to be categorised later
-- Bullet points are useful, but it could be free form text as well
-- Sometimes it's better to just get things off your mind quickly, rather than stop to think where it belongs
-- But don't let this list get too long
-- Move information to more specific documents and link to them.
-  - This helps you navigate between documents quickly
-  - For example, you can `Cmd`+`Click` (`Ctrl`+`Click` in Windows) this: [[todo]]
-- Some notes don't end up making sense the next day
-- That's ok, you can just delete them!
-  - You can always find them in your git history, if you really need it!
+- 你可以在这里记录杂乱的笔记，稍后再进行分类
+- 项目符号很有用，但也可以使用自由格式的文本
+- 有时，快速把想法记录下来比停下来思考它应该归在哪里更好
+- 但不要让这个列表变得太长
+- 将信息移到更具体的文档中，并链接到这些文档。
+  - 这样可以帮助你在文档之间快速导航
+  - 例如，你可以按住 `Cmd` 并点击（Windows 中为 `Ctrl`+`Click`）此处：[[todo]]
+- 有些笔记第二天看起来可能就没有意义了
+- 没关系，你可以直接删除它们！
+  - 如果确实需要，你随时可以在 Git 历史记录中找到它们！
+
+[todo]: todo.md "Todo"
