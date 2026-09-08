@@ -1,37 +1,37 @@
-# Search and Navigate Notes
+# 搜索和浏览笔记
 
-This #recipe covers the ways you can find and navigate notes in Foam.
+本 `#recipe` 介绍在 Foam 中查找和浏览笔记的方式。
 
-## Quick Open
+## 快速打开
 
-Press `Cmd+P` (`Ctrl+P` on Windows) and type a note name to open it directly. Partial matches work — `proj meet` will find `projects/meeting-notes.md`.
+按 `Cmd+P`（Windows 上为 `Ctrl+P`），输入笔记名称即可直接打开。支持部分匹配，例如 `proj meet` 可以找到 `projects/meeting-notes.md`。
 
-## Full-text Search
+## 全文搜索
 
-Press `Cmd+Shift+F` (`Ctrl+Shift+F` on Windows) to search across all note content. Use the filter icon to restrict search to specific folders or file types.
+按 `Cmd+Shift+F`（Windows 上为 `Ctrl+Shift+F`）搜索所有笔记内容。使用筛选图标可以将搜索范围限制为特定文件夹或文件类型。
 
-## Note Navigator Panel
+## 笔记导航器面板
 
-The **Note Navigator** panel in the sidebar lets you browse and filter all notes in your workspace. Use the filter input to narrow by name, and switch between flat and grouped-by-folder views from the panel toolbar.
+侧边栏中的 **Note Navigator** 面板可以浏览和筛选工作区中的所有笔记。使用筛选输入框按名称缩小范围，并通过面板工具栏在平铺视图和按文件夹分组的视图之间切换。
 
-## Other Panels
+## 其他面板
 
-Foam adds several panels to the sidebar that help you discover notes:
+Foam 在侧边栏中添加了多个面板，帮助你发现笔记：
 
-- **Backlinks** — shows which notes link to the currently open note
-- **Placeholders** — lists wikilinks that don't yet have a corresponding file
-- **Orphans** — lists notes with no incoming or outgoing links (see [[orphans]])
-- **Tags** — browse all tags and jump to tagged notes (see [[tags]])
+- **Backlinks** — 显示哪些笔记链接到了当前打开的笔记
+- **Placeholders** — 列出尚未有对应文件的 wikilink
+- **Orphans** — 列出没有入链或出链的笔记（参见 [[orphans]]）
+- **Tags** — 浏览所有标签并跳转到带标签的笔记（参见 [[tags]]）
 
-## Graph View
+## 图谱视图
 
-The [[graph-view]] gives a visual overview of your entire knowledge base. Click any node to open that note. You can also [[resource-filters|filter the graph]] to focus on a subset of notes by tag, type, path, or title.
+[[graph-view]] 提供整个知识库的可视化概览。点击任意节点即可打开对应笔记。你还可以按标签、类型、路径或标题[[resource-filters|筛选图谱]]，聚焦于部分笔记。
 
-## Random Note
+## 随机笔记
 
-Run **"Foam: Open Random Note"** from the command palette to resurface forgotten notes.
+从命令面板运行 **“Foam: Open Random Note”**，重新发现被遗忘的笔记。
 
-[orphans]: ../tools/orphans.md 'Orphaned Notes'
-[tags]: ../features/tags.md 'Tags'
-[graph-view]: ../features/graph-view.md 'Graph View'
-[resource-filters]: ../features/resource-filters.md 'Resource Filters'
+[orphans]: ../tools/orphans.md "Orphaned Notes"
+[tags]: ../features/tags.md "标签"
+[graph-view]: ../features/graph-view.md "图谱可视化"
+[resource-filters|筛选图谱]: ../features/resource-filters.md "Resource Filters"

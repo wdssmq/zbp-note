@@ -1,56 +1,56 @@
-# Note-Taking in Foam
+# 在 Foam 中记笔记
 
-Effective note-taking is the foundation of any knowledge management system. In Foam, you'll write notes in Markdown, a simple and powerful format that's both human-readable and widely supported. This guide will teach you everything you need to know about writing great notes in Foam.
+高效记笔记是任何知识管理系统的基础。在 Foam 中，你将使用 Markdown 编写笔记。这是一种简单而强大的格式，既便于人类阅读，也得到广泛支持。本指南将介绍在 Foam 中写好笔记所需了解的一切。
 
-## Markdown Basics
+## Markdown 基础
 
-Markdown is a lightweight markup language that uses simple syntax to format text. Here are the essentials:
+Markdown 是一种轻量级标记语言，使用简单语法格式化文本。以下是基础内容：
 
-### Headings
+### 标题
 
 ```markdown
-# Heading 1 (Main Title)
+# 标题 1（主标题）
 
-## Heading 2 (Major Section)
+## 标题 2（主要章节）
 
-### Heading 3 (Subsection)
+### 标题 3（子章节）
 
-#### Heading 4 (Minor Section)
+#### 标题 4（次要章节）
 ```
 
-### Text Formatting
+### 文本格式
 
 ```markdown
-**Bold text**
-_Italic text_
-**_Bold and italic_**
-~~Strikethrough~~
-`Inline code`
+**粗体文本**
+_斜体文本_
+**_粗体和斜体_**
+~~删除线~~
+`行内代码`
 ```
 
-### Lists
+### 列表
 
 ```markdown
-## Unordered Lists
+## 无序列表
 
-- First item
-- Second item
-  - Nested item
-  - Another nested item
+- 第一项
+- 第二项
+  - 嵌套项
+  - 另一个嵌套项
 
-## Ordered Lists
+## 有序列表
 
-1. First step
-2. Second step
-   1. Sub-step
-   2. Another sub-step
+1. 第一步
+2. 第二步
+   1. 子步骤
+   2. 另一个子步骤
 ```
 
-### Links and Images
+### 链接和图片
 
 ```markdown
-[External link](https://example.com)
-![Image description](./assets/images/screenshot.png)
+[外部链接](https://example.com)
+![图片说明](./assets/images/screenshot.png)
 ```
 
 ### Code Blocks
@@ -58,68 +58,68 @@ _Italic text_
 ````markdown
 ```javascript
 function greet(name) {
-  return `Hello, ${name}!`;
+  return `你好，${name}！`;
 }
 ```
 ````
 
-### Tables
+### 表格
 
 ```markdown
-| Column 1 | Column 2 | Column 3 |
+| 第 1 列  | 第 2 列  | 第 3 列  |
 | -------- | -------- | -------- |
-| Data 1   | Data 2   | Data 3   |
-| Data 4   | Data 5   | Data 6   |
+| 数据 1   | 数据 2   | 数据 3   |
+| 数据 4   | 数据 5   | 数据 6   |
 ```
 
-### Quotes and Dividers
+### 引用和分隔线
 
 ```markdown
-> This is a quote or important note
-> It can span multiple lines
+> 这是引用或重要笔记
+> 它可以跨越多行
 
 ---
 
-Use three dashes for horizontal dividers
+使用三个短横线创建水平分隔线
 ```
 
-_[📹 Watch: Markdown syntax essentials for note-taking]_
+_[📹 观看：记笔记所需的 Markdown 语法基础]_
 
-## Foam-Specific Features
+## Foam 专属功能
 
-Beyond standard Markdown, Foam adds several powerful features:
+除了标准 Markdown 外，Foam 还添加了多个强大功能：
 
-### Wikilinks
+### Wikilink
 
-Connect your notes with double brackets:
+使用双括号连接笔记：
 
 ```markdown
-I'm reading about [[Project Management]] and its relationship to [[Personal Productivity]].
+我正在阅读 [[Project Management]] 以及它与 [[Personal Productivity]] 的关系。
 
-This connects to [[2025-01-25-daily-note]] where I first had this insight.
+这与 [[2025-01-25-daily-note]] 相连接，我最初就是在那里产生这个想法的。
 ```
 
-### Note Embedding
+### 笔记嵌入
 
-Include content from other notes via [[embeds]]:
+通过 [[embeds]] 包含其他笔记中的内容：
 
 ```markdown
 ![[Project Management#Key Principles]]
 
-This embeds the "Key Principles" section from the Project Management note.
+这会嵌入 Project Management 笔记中的“关键原则”章节。
 ```
 
-### Tags
+### 标签
 
-Organize your content with [[tags]]:
+使用 [[tags]] 组织内容：
 
 ```markdown
 #productivity #learning #foam
 
-Tags can be anywhere in your note and help with organization and filtering.
+标签可以放在笔记的任意位置，帮助组织和筛选内容。
 ```
 
-Use nested tags for better organization:
+使用嵌套标签进行更好的组织：
 
 ```markdown
 #work/projects/website
@@ -127,112 +127,112 @@ Use nested tags for better organization:
 #personal/health/exercise
 ```
 
-Those tags will show as a tree structure in the [Tag Explorer](../features/tags.md)
+这些标签会在 [Tag Explorer](../features/tags.md) 中以树形结构显示。
 
-### Note Properties (YAML Front Matter)
+### 笔记属性（YAML Front Matter）
 
-Add metadata to your notes:
+为笔记添加元数据：
 
 ```markdown
 ---
-title: 'Advanced Note-Taking Strategies'
+title: '高级记笔记策略'
 tags: [productivity, learning, methods]
 created: 2025-01-25
 modified: 2025-01-25
 status: draft
 ---
 
-# Advanced Note-Taking Strategies
+# 高级记笔记策略
 
-Your note content goes here...
+在此填写笔记内容……
 ```
 
-## Writing Effective Notes
+## 写出高效笔记
 
-### The Atomic Principle
+### 原子化原则
 
-Each note should focus on one concept or idea:
+每篇笔记都应专注于一个概念或想法：
 
-**Good Example:**
+**正确示例：**
 
 ```markdown
-# The Feynman Technique
+# 费曼技巧
 
-A learning method where you explain a concept in simple terms as if teaching it to someone else.
+一种学习方法：像向他人授课一样，用简单的语言解释一个概念。
 
-## Steps
+## 步骤
 
-1. Choose a topic to learn
-2. Explain it in simple terms
-3. Identify gaps in understanding
-4. Simplify and use analogies
+1. 选择要学习的主题
+2. 用简单的语言进行解释
+3. 找出理解上的空白
+4. 简化内容并使用类比
 
-## Why It Works
+## 为什么有效
 
-- Forces active engagement with material
-- Reveals knowledge gaps quickly
-- Improves retention through teaching
+- 迫使自己主动参与材料学习
+- 快速暴露知识空白
+- 通过讲授提高记忆保持度
 
-Related: [[Active Learning]] [[Study Methods]]
+相关内容：[[Active Learning]] [[Study Methods]]
 ```
 
-**Avoid:**
-Mixing multiple unrelated concepts in one note.
+**避免：**
+在一篇笔记中混合多个无关概念。
 
-### Use Descriptive Titles
+### 使用描述性标题
 
-Your note titles should clearly indicate the content:
+笔记标题应清晰表明内容：
 
-**Good:** `REST API Design Principles`
-**Good:** `Meeting Notes - Product Roadmap Review 2025-01-25`
-**Avoid:** `Stuff I Learned Today`
-**Avoid:** `Notes`
+**推荐：** `REST API Design Principles`
+**推荐：** `Meeting Notes - Product Roadmap Review 2025-01-25`
+**避免：** `Stuff I Learned Today`
+**避免：** `Notes`
 
-### Link Generously
+### 大胆建立链接
 
-Don't hesitate to create links, even to notes that don't exist yet:
+即使目标笔记尚不存在，也不要犹豫，尽管创建链接：
 
 ```markdown
-# Machine Learning Fundamentals
+# 机器学习基础
 
-Machine learning is a subset of [[Artificial Intelligence]] that focuses on creating algorithms that can learn from [[Data]].
+机器学习是 [[Artificial Intelligence]] 的一个分支，专注于创建能够从 [[Data]] 中学习的算法。
 
-Key concepts include:
+关键概念包括：
 
 - [[Supervised Learning]]
 - [[Unsupervised Learning]]
 - [[Neural Networks]]
 - [[Feature Engineering]]
 
-This connects to my work on [[Customer Behavior Analysis]] and [[Predictive Analytics]].
+这与我在 [[Customer Behavior Analysis]] 和 [[Predictive Analytics]] 方面的工作相关。
 ```
 
-Foam will create placeholder pages for missing notes, making it easy to fill in knowledge gaps later.
+Foam 会为缺失的笔记创建占位页面，方便之后填补知识空白。
 
-## Keyboard Shortcuts
+## 键盘快捷键
 
-Essential VS Code shortcuts for note-taking:
+记笔记时常用的 VS Code 快捷键：
 
-| Shortcut                       | Action                |
+| 快捷键                        | 操作                  |
 | ------------------------------ | --------------------- |
-| `Ctrl+N` / `Cmd+N`             | New file              |
-| `Ctrl+S` / `Cmd+S`             | Save file             |
-| `Ctrl+P` / `Cmd+P`             | Quick file open       |
-| `Ctrl+Shift+P` / `Cmd+Shift+P` | Command palette       |
-| `Ctrl+K V` / `Cmd+K V`         | Open Markdown preview |
-| `Ctrl+[` / `Cmd+[`             | Decrease indent       |
-| `Ctrl+]` / `Cmd+]`             | Increase indent       |
-| `Alt+Z` / `Option+Z`           | Toggle word wrap      |
+| `Ctrl+N` / `Cmd+N`             | 新建文件              |
+| `Ctrl+S` / `Cmd+S`             | 保存文件              |
+| `Ctrl+P` / `Cmd+P`             | 快速打开文件          |
+| `Ctrl+Shift+P` / `Cmd+Shift+P` | 命令面板              |
+| `Ctrl+K V` / `Cmd+K V`         | 打开 Markdown 预览    |
+| `Ctrl+[` / `Cmd+[`             | 减少缩进              |
+| `Ctrl+]` / `Cmd+]`             | 增加缩进              |
+| `Alt+Z` / `Option+Z`           | 切换自动换行          |
 
-## What's Next?
+## 接下来做什么
 
-Now that you understand note-taking basics:
+了解记笔记基础后：
 
-1. **[[navigation]]** - Learn to move efficiently between notes with wikilinks
-2. **[Explore the graph view](../features/graph-view.md)** - Visualize the connections in your knowledge base
-3. **[Set up templates](../features/templates.md)** - Create reusable note structures
-4. **[Use daily notes](../features/daily-notes.md)** - Establish a daily capture routine
+1. **[[navigation]]** - 学习使用 wikilink 在笔记之间高效移动
+2. **[探索图谱视图](../features/graph-view.md)** - 将知识库中的连接可视化
+3. **[设置模板](../features/templates.md)** - 创建可重复使用的笔记结构
+4. **[使用每日笔记](../features/daily-notes.md)** - 建立每日记录习惯
 
-[navigation]: navigation.md 'Navigation in Foam'
-[tags]: ../features/tags.md 'Tags'
-[embeds]: ../features/embeds.md 'Note Embeds'
+[embeds]: ../features/embeds.md "Note Embeds"
+[tags]: ../features/tags.md "标签"
+[navigation]: navigation.md "Navigation in Foam"

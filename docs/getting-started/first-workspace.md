@@ -1,183 +1,183 @@
-# Creating Your First Workspace
+# 创建你的第一个工作区
 
-A Foam workspace is where all your notes, ideas, and knowledge live. Think of it as your digital garden where thoughts can grow and connect. This guide will help you set up a workspace that's organized, scalable, and tailored to your thinking style.
+Foam 工作区是存放所有笔记、想法和知识的地方。你可以把它想象成一座数字花园，让思想在其中生长并建立联系。本指南将帮助你设置一个结构清晰、可扩展且符合个人思维方式的工作区。
 
-## Understanding Workspaces
+## 了解工作区
 
-A Foam workspace is simply a folder containing **Markdown files** (`.md`) - your actual notes.
+Foam 工作区本质上是一个包含 **Markdown 文件**（`.md`）的文件夹，也就是存放实际笔记的地方。
 
-Optionally it can contain:
+此外还可以包含：
 
-- **Configuration files** - VS Code settings and Foam preferences
-- **Assets** - images, attachments, and other media
-- **Templates** - reusable note structures
+- **配置文件** - VS Code 设置和 Foam 首选项
+- **资源** - 图片、附件和其他媒体
+- **模板** - 可重复使用的笔记结构
 
-### Single vs. Multiple Workspaces
+### 单个工作区与多个工作区
 
-**Recommended: Single Workspace**
+**推荐：单个工作区**
 
-- Keep all your knowledge in one place
-- Better link discovery and graph visualization
-- Easier to maintain and backup
-- Follows the "unified knowledge base" principle
+- 将所有知识集中在一个地方
+- 更便于发现链接和查看图谱
+- 更容易维护和备份
+- 遵循“统一知识库”原则
 
-**Deprecated: Multiple Workspaces** (deprecated - advanced users only)
+**已弃用：多个工作区**（已弃用，仅供高级用户使用）
 
-- Separate professional and personal knowledge
-- Isolate sensitive information
-- Different workflows for different projects
+- 分离工作和个人知识
+- 隔离敏感信息
+- 为不同项目使用不同工作流
 
-Multiple workspaces are to be considered deprecated at this point, and might become unsupported in the future.
-You can simulate a complex workspace by using file/folder links.
+目前应将多个工作区视为已弃用功能，未来可能不再受支持。
+你可以通过文件/文件夹链接模拟复杂工作区。
 
-## Method 1: Using the Foam Template (Recommended)
+## 方法 1：使用 Foam 模板（推荐）
 
-The easiest way to start is with our pre-configured template:
+最简单的开始方式是使用我们预先配置好的模板：
 
-### Step 1: Create from Template
+### 第 1 步：从模板创建
 
-1. **Visit** [github.com/foambubble/foam-template](https://github.com/foambubble/foam-template)
-2. **Click "Use this template"** (you'll need a GitHub account)
-3. **Name your repository** (e.g., "john-knowledge-base", "my-second-brain")
-4. **Choose visibility:**
-   - **Private** - for personal notes (recommended)
-   - **Public** - if you want to share your knowledge openly
+1. **访问** [github.com/foambubble/foam-template](https://github.com/foambubble/foam-template)
+2. **点击“Use this template”**（需要 GitHub 账户）
+3. **为仓库命名**（例如 “john-knowledge-base”、“my-second-brain”）
+4. **选择可见性：**
+   - **Private** - 用于个人笔记（推荐）
+   - **Public** - 如果希望公开分享知识
 
-### Step 2: Clone Locally
+### 第 2 步：克隆到本地
 
 ```bash
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
 ```
 
-### Step 3: Open in VS Code
+### 第 3 步：在 VS Code 中打开
 
-1. **Launch VS Code**
+1. **启动 VS Code**
 2. **File > Open Folder**
-3. **Select your cloned repository folder**
+3. **选择克隆的仓库文件夹**
 
-## Method 2: Start from Scratch
+## 方法 2：从头开始
 
-For a minimal setup:
+如需最简设置：
 
-1. **Create a new folder** on your computer
-2. **Open the folder** in VS Code (`File > Open Folder`)
+1. 在电脑上**创建新文件夹**
+2. 在 VS Code 中**打开该文件夹**（`File > Open Folder`）
 
-That's all, you can start working with your markdown files and Foam will take care of the rest.
+就这么简单，你可以开始处理 Markdown 文件，剩下的交给 Foam 即可。
 
-> Already have an Obsidian vault? You can open it directly in VS Code — see [[migrating-from-obsidian]].
+> 已经有 Obsidian vault？可以直接在 VS Code 中打开它，参见 [[migrating-from-obsidian]]。
 
-## Ideas for your knowledge base
+## 知识库构想
 
-### 1. Customize Your Settings
+### 1. 自定义设置
 
-Review and adjust `.vscode/settings.json` based on your preferences:
+根据个人偏好检查并调整 `.vscode/settings.json`：
 
-- **Daily notes location** - where your daily notes are stored
-- **Image handling** - how pasted images are organized
-- **Link format** - with or without file extensions
+- **每日笔记位置** - 存放每日笔记的位置
+- **图片处理** - 整理粘贴图片的方式
+- **链接格式** - 是否包含文件扩展名
 
-### 2. Set Up Your Inbox
+### 2. 设置收件箱
 
-Create `inbox.md` as your default capture location:
+创建 `inbox.md` 作为默认记录位置：
 
 ```markdown
 # Inbox
 
-Quick notes and ideas go here before being organized.
+整理之前，可以先将临时笔记和想法记录在这里。
 
-## Today's Captures
-
--
-
-## To Process
+## 今天的记录
 
 -
 
-## Ideas
+## 待处理
+
+-
+
+## 想法
 
 -
 ```
 
-### 3. Create Core Structure Notes
+### 3. 创建核心结构笔记
 
-## Workspace Organization Strategies
+## 工作区组织策略
 
-Establish your main organizational notes.
-You can use any methodology, Foam is not opinionated.
+建立主要的组织笔记。
+你可以使用任何方法，Foam 不限定具体的组织方式。
 
-The only recommendation is to get started, you can improve later.
+唯一的建议是先开始，之后再逐步改进。
 
-The two main methods adopted by users are [PARA](https://fortelabs.com/blog/para/) and [Zettelkasten](https://zettelkasten.de/overview/).
+用户采用较多的两种方法是 [PARA](https://fortelabs.com/blog/para/) 和 [Zettelkasten](https://zettelkasten.de/overview/)。
 
-### The PARA Method
+### PARA 方法
 
-Organize around four categories:
+围绕四个类别进行组织：
 
-- **Projects** - Things with deadlines
-- **Areas** - Ongoing responsibilities
-- **Resources** - Future reference materials
-- **Archive** - Inactive items
+- **项目** - 有截止日期的事项
+- **领域** - 持续承担的职责
+- **资源** - 未来参考资料
+- **归档** - 不活跃的事项
 
-### Zettelkasten Approach
+### Zettelkasten 方法
 
-Number-based system for atomic ideas:
+使用编号管理原子化想法：
 
-- **Permanent notes** - `202501251030-idea-title.md`
-- **Literature notes** - `book-author-year.md`
-- **Index notes** - `index-topic.md`
+- **永久笔记** - `202501251030-idea-title.md`
+- **文献笔记** - `book-author-year.md`
+- **索引笔记** - `index-topic.md`
 
-### 4. Configure Daily Notes
+### 4. 配置每日笔记
 
-Daily notes are perfect for:
+每日笔记适合用于：
 
-- Daily planning and reflection
-- Meeting notes
-- Journal entries
-- Quick captures
+- 每日计划和反思
+- 会议笔记
+- 日记记录
+- 临时记录
 
-Test your daily notes setup:
+测试每日笔记设置：
 
-1. **Press `Ctrl+Shift+P` / `Cmd+Shift+P`**
-2. **Type "Foam: Open Daily Note"**
-3. **Verify the note is created in the right location**
+1. **按 `Ctrl+Shift+P` / `Cmd+Shift+P`**
+2. **输入“Foam: Open Daily Note”**
+3. **确认笔记已创建在正确位置**
 
-Alternatively you can press `Alt+D` to open today's daily note, or `Alt+H` to open another day's daily note.
-Use the `.foam/templates/daily-note.md` to customize your daily note.
+你也可以按 `Alt+D` 打开今天的每日笔记，或按 `Alt+H` 打开其他日期的每日笔记。
+使用 `.foam/templates/daily-note.md` 自定义每日笔记。
 
-## Best Practices for New Workspaces
+## 新工作区的最佳实践
 
-### 1. Start Small
+### 1. 从小处开始
 
-- Begin with just a few notes
-- Don't over-organize initially
-- Let structure emerge naturally
+- 先从几篇笔记开始
+- 初期不要过度组织
+- 让结构自然形成
 
-### 2. Use Templates
+### 2. 使用模板
 
-- Create templates for common note types
-- Maintain consistency across similar notes
-- Save time on repetitive formatting
+- 为常见笔记类型创建模板
+- 保持相似笔记的一致性
+- 节省重复格式化的时间
 
-### 3. Link Early and Often
+### 3. 尽早并经常建立链接
 
-- Use `[[wikilinks]]` liberally
-- Don't worry about creating "perfect" links
-- Foam handles broken links gracefully
+- 灵活使用 `[[wikilinks]]`
+- 不必担心创建“完美”的链接
+- Foam 能妥善处理断开的链接
 
-### 4. Regular Reviews
+### 4. 定期回顾
 
-- Weekly workspace cleanup
-- Archive completed projects
-- Identify missing connections
+- 每周清理工作区
+- 归档已完成的项目
+- 找出缺失的连接
 
-## Syncing and Backup
+## 同步和备份
 
-Foam works on simple files, you can add whatever backup method you prefer on top of it.
+Foam 基于普通文件运行，你可以在此基础上添加任何喜欢的备份方式。
 
 ### Git
 
-Your workspace is a Git repository:
+你的工作区是一个 Git 仓库：
 
 ```bash
 git add .
@@ -185,30 +185,30 @@ git commit -m "Add new notes and ideas"
 git push origin main
 ```
 
-You can also use other VS Code extensions to manage the git synching if that's helpful.
+如果有帮助，也可以使用其他 VS Code 扩展管理 Git 同步。
 
-### Alternative Sync Methods
+### 其他同步方式
 
-- **Cloud storage** - Dropbox, OneDrive, Google Drive
-- **Local backup** - Time Machine, File History
-- **Manual export** - Regular ZIP backups
+- **云存储** - Dropbox、OneDrive、Google Drive
+- **本地备份** - Time Machine、文件历史记录
+- **手动导出** - 定期创建 ZIP 备份
 
-## What's Next?
+## 接下来做什么
 
-With your workspace set up, you're ready to:
+工作区设置完成后，你可以：
 
-1. **[Learn note-taking fundamentals](note-taking-in-foam.md)** - Master Markdown and writing effective notes
-2. **[Explore navigation](navigation.md)** - Connect your thoughts with wikilinks
-3. **[Discover the graph view](../features/graph-view.md)** - Visualize your knowledge network
-4. **[Set up templates](../features/templates.md)** - Standardize your note creation process
+1. **[学习笔记基础](note-taking-in-foam.md)** - 掌握 Markdown 和高效笔记写作
+2. **[探索导航](navigation.md)** - 使用 wikilink 连接想法
+3. **[了解图谱视图](../features/graph-view.md)** - 将知识网络可视化
+4. **[设置模板](../features/templates.md)** - 规范笔记创建流程
 
-## Getting Help
+## 获取帮助
 
-If you encounter setup issues:
+如果在设置过程中遇到问题：
 
-- Check the [Installation Guide](installation.md) for prerequisites
-- Visit the [[frequently-asked-questions]] for common workspace problems
-- Join the [Foam Community Discord](https://discord.com/invite/HV2tn2FpEk)
+- 查看[安装指南](installation.md)了解前置要求
+- 查看[[frequently-asked-questions]]了解常见工作区问题
+- 加入 [Foam Discord 社区](https://discord.com/invite/HV2tn2FpEk)
 
-[frequently-asked-questions]: ../frequently-asked-questions.md 'Frequently Asked Questions'
 [migrating-from-obsidian]: ../recipes/migrating-from-obsidian.md "Coming from Obsidian"
+[frequently-asked-questions]: ../frequently-asked-questions.md "常见问题"
