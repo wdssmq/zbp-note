@@ -1,16 +1,16 @@
-# Daily Notes
+# 每日笔记
 
-Daily notes allow you to quickly create and access a note file for each day.
+每日笔记可以让你快速创建和访问每天对应的笔记文件。
 
-## Creating Daily Notes
+## 创建每日笔记
 
-- **Command:** `Ctrl+Shift+P` → "Foam: Open Daily Note"
-- **Shortcut:** `Alt+D`
-- **Snippets:** Type `/today`, `/yesterday`, `/tomorrow` in any note
+- **命令：** `Ctrl+Shift+P` → “Foam: Open Daily Note”
+- **快捷键：** `Alt+D`
+- **片段：** 在任意笔记中输入 `/today`、`/yesterday`、`/tomorrow`
 
-## Automatic Daily Notes
+## 自动打开每日笔记
 
-Open daily note automatically on VS Code startup:
+在 VS Code 启动时自动打开每日笔记：
 
 ```json
 {
@@ -18,49 +18,49 @@ Open daily note automatically on VS Code startup:
 }
 ```
 
-## Daily Note Templates
+## 每日笔记模板
 
-Create `.foam/templates/daily-note.md` to customize the structure:
+创建 `.foam/templates/daily-note.md` 来自定义结构：
 
 ```markdown
 ---
 type: daily-note
 ---
 
-# Daily Note - $FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE
+# 每日笔记 - $FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE
 
-## Tasks
+## 任务
 
 - [ ]
 
-## Notes
+## 笔记
 ```
 
-## Date Snippets
+## 日期片段
 
 Create links to recent daily notes using snippets:
 
-| Snippet      | Date          |
+| 片段         | 日期          |
 | ------------ | ------------- |
-| `/today`     | today         |
-| `/tomorrow`  | tomorrow      |
-| `/yesterday` | yesterday     |
-| `/monday`    | next Monday   |
-| `/+1d`       | tomorrow      |
-| `/-3d`       | 3 days ago    |
-| `/+1w`       | in a week     |
-| `/-1m`       | one month ago |
-| `/+1y`       | in one year   |
+| `/today`     | 今天          |
+| `/tomorrow`  | 明天          |
+| `/yesterday` | 昨天          |
+| `/monday`    | 下周一        |
+| `/+1d`       | 明天          |
+| `/-3d`       | 3 天前        |
+| `/+1w`       | 一周后        |
+| `/-1m`       | 一个月前      |
+| `/+1y`       | 一年后        |
 
-## Configuration
+## 配置
 
-By default, daily notes are created as `yyyy-mm-dd.md` in the workspace's `journals` folder.
+默认情况下，每日笔记会以 `yyyy-mm-dd.md` 的形式创建在工作区的 `journals` 文件夹中。
 
-To customize your daily note location and format you can create a `.foam/templates/daily-note.md` template. See [[templates]] for more information.
+要自定义每日笔记的位置和格式，可以创建 `.foam/templates/daily-note.md` 模板。更多信息请参阅 [[templates]]。
 
-There are also some settings to customize the behavior of daily notes, but they are deprecated and will be removed. Please use the `daily-note.md` template.
+还有一些设置可以自定义每日笔记的行为，但这些设置已弃用并将被移除。请使用 `daily-note.md` 模板。
 
-To work with daily notes from the terminal, see [[daily|CLI daily command]].
+要从终端处理每日笔记，请参阅 [[daily|CLI daily command]]。
 
 [templates]: templates.md 'Note Templates'
 [daily]: ../tools/cli/daily.md 'foam daily'

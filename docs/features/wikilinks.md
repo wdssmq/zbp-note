@@ -1,75 +1,75 @@
-# Wikilinks
+# Wikilink
 
-Wikilinks are internal links that connect files in your knowledge base using `[[double bracket]]` syntax.
+Wikilink 是使用 `[[双括号]]` 语法连接知识库中文件的内部链接。
 
-## Creating Wikilinks
+## 创建 Wikilink
 
-1. **Type `[[`** and start typing a note name
-2. **Select from autocomplete** and press `Tab`
-3. **Navigate** with `Ctrl+Click` (`Cmd+Click` on Mac) or `F12`
-4. **Create new notes** by clicking on non-existent wikilinks
+1. **输入 `[[`**，然后开始输入笔记名称
+2. **从自动补全中选择**并按 `Tab`
+3. 使用 `Ctrl+Click`（Mac 上使用 `Cmd+Click`）或 `F12` **进行导航**
+4. 点击不存在的 wikilink **创建新笔记**
 
-Example: [[graph-view]]
+示例：[[graph-view]]
 
-## Placeholders
+## 占位符
 
-Wikilinks to non-existent files create placeholder links, styled differently to show they need files created. They're useful for planning your knowledge structure.
+指向不存在文件的 wikilink 会创建占位链接，并以不同样式显示，表明需要创建对应文件。占位链接适合用于规划知识结构。
 
-View placeholders in the graph with `Foam: Show Graph` command or in the `Placeholders` panel.
+可以使用 `Foam: Show Graph` 命令在图谱中查看占位符，也可以在 `Placeholders` 面板中查看。
 
-## Section Links
+## 章节链接
 
-Link to specific sections using `[[note-name#Section Title]]` syntax. Foam provides autocomplete for section titles.
+使用 `[[note-name#Section Title]]` 语法链接到特定章节。Foam 会为章节标题提供自动补全。
 
-Examples:
+示例：
 
-- External file: `[link text](other-file.md#section-name)`
-- Same document: `[link text](#section-name)`
+- 外部文件：`[link text](other-file.md#section-name)`
+- 同一文档：`[link text](#section-name)`
 
-## Block Links
+## 块链接
 
-Link to a specific paragraph, list item, heading, or blockquote using `[[note-name#^blockid]]` syntax. Add a `^your-id` anchor at the end of any block element, then reference it from other notes.
+使用 `[[note-name#^blockid]]` 语法链接到特定段落、列表项、标题或引用块。在任意块元素末尾添加 `^your-id` 锚点，然后即可从其他笔记引用它。
 
-See [[block-anchors]] for full details.
+详情请参阅 [[block-anchors]]。
 
-## Directory Links
+## 目录链接
 
-Linking to a folder name navigates to that folder's index file — either `index.md` or `README.md`. This works for both wikilinks and regular markdown links:
+链接到文件夹名称会导航到该文件夹的索引文件，即 `index.md` 或 `README.md`。Wikilink 和普通 Markdown 链接都支持此功能：
 
-- `[[projects]]` → opens `projects/index.md` (or `projects/README.md`)
-- `[Projects](projects)` → same
-- `[Projects](projects/)` → trailing slash is ignored
+- `[[projects]]` → 打开 `projects/index.md`（或 `projects/README.md`）
+- `[Projects](projects)` → 效果相同
+- `[Projects](projects/)` → 忽略末尾的斜杠
 
-If a file named `projects.md` exists alongside the `projects/` folder, it takes priority.
+如果 `projects/` 文件夹旁边存在名为 `projects.md` 的文件，则优先使用该文件。
 
-To disable this behavior, set `foam.links.directory.mode` to `disabled` in your VS Code settings.
+要禁用此行为，请在 VS Code 设置中将 `foam.links.directory.mode` 设置为 `disabled`。
 
-## Link Syncing on Rename
+## 重命名时同步链接
 
-When you rename or move a note or folder, Foam automatically updates all wikilinks pointing to it. This is enabled by default and can be turned off via the `foam.links.sync.enable` setting.
+重命名或移动笔记、文件夹时，Foam 会自动更新所有指向它的 wikilink。此功能默认启用，可以通过 `foam.links.sync.enable` 设置关闭。
 
-For standard markdown links (e.g. `[text](path/to/note.md)`), VS Code has a built-in feature that handles this. Enable it in VS Code settings: set `markdown.updateLinksOnFileMove.enabled` to `always` or `prompt`.
+对于标准 Markdown 链接（例如 `[text](path/to/note.md)`），VS Code 提供了内置功能来处理此行为。在 VS Code 设置中将 `markdown.updateLinksOnFileMove.enabled` 设置为 `always` 或 `prompt` 即可启用。
 
-## Path vs Identifier Links
+## 路径链接与标识符链接
 
-Wikilinks come in two forms:
+Wikilink 有两种形式：
 
-- **Identifier links** — `[[filename]]`, `[[folder/filename]]` — identify a resource by name, resolved relative to the whole workspace
-- **Path links** — `[[./file]]`, `[[../other/file]]`, `[[/from/root]]` — identify a resource by its file path
+- **标识符链接** — `[[filename]]`、`[[folder/filename]]` — 通过名称标识资源，相对于整个工作区解析
+- **路径链接** — `[[./file]]`、`[[../other/file]]`、`[[/from/root]]` — 通过文件路径标识资源
 
-The rule: if the link starts with `/` or `.`, it's a path reference; otherwise it's an identifier.
+规则是：如果链接以 `/` 或 `.` 开头，则属于路径引用；否则属于标识符。
 
-For identifier links, you can use any suffix that uniquely identifies the file. Given `projects/house/todo.md` and `work/todo.md`, the identifiers `[[todo]]` (ambiguous), `[[house/todo]]` (unique), and `[[projects/house/todo]]` (unique) are all valid — Foam picks the shortest unambiguous form.
+对于标识符链接，可以使用能够唯一标识文件的任意后缀。假设存在 `projects/house/todo.md` 和 `work/todo.md`，则 `[[todo]]`（有歧义）、`[[house/todo]]`（唯一）和 `[[projects/house/todo]]`（唯一）都有效，Foam 会选择最短且无歧义的形式。
 
-## Ambiguous Links
+## 有歧义的链接
 
-When the same filename exists in multiple locations, `[[todo]]` is ambiguous. Foam resolves it alphabetically (deterministic), and shows a warning diagnostic so you can use a more specific identifier like `[[house/todo]]`.
+当多个位置存在同名文件时，`[[todo]]` 就会产生歧义。Foam 会按字母顺序解析它（结果是确定的），并显示警告诊断，提示你使用更具体的标识符，例如 `[[house/todo]]`。
 
-## Markdown Compatibility
+## Markdown 兼容性
 
-Foam can automatically generate [[link-reference-definitions]] at the bottom of files to make wikilinks compatible with standard Markdown processors.
+Foam 可以在文件底部自动生成 [[link-reference-definitions]]，使 wikilink 兼容标准 Markdown 处理器。
 
-## Compatibility with Other Apps
+## 与其他应用的兼容性
 
 | Wikilink                       | Obsidian                        | Foam                            |
 | ------------------------------ | ------------------------------- | ------------------------------- |
@@ -82,14 +82,14 @@ Foam can automatically generate [[link-reference-definitions]] at the bottom of 
 | `[[todo]]` (ambiguous)         | ✘ ambiguous identifier          | ✘ ambiguous identifier          |
 | `[[/house/todo]]` (wrong path) | ✘ incorrect path from repo root | ✘ incorrect path from repo root |
 
-## Related
+## 相关内容
 
-- [[footnotes]] - Adding references and side notes
-- [[block-anchors]] - Linking to specific blocks within a note
-- [[templates]] - Creating new notes
+- [[footnotes]] - 添加引用和旁注
+- [[block-anchors]] - 链接到笔记中的特定块
+- [[templates]] - 创建新笔记
 
-[link-reference-definitions]: link-reference-definitions.md 'Link Reference Definitions'
-[footnotes]: footnotes.md 'Footnotes'
-[block-anchors]: block-anchors.md 'Block Anchors'
-[graph-view]: graph-view.md "Graph Visualization"
-[templates]: templates.md "Note Templates"
+[graph-view]: graph-view.md "图谱可视化"
+[block-anchors]: block-anchors.md "块锚点"
+[link-reference-definitions]: link-reference-definitions.md "链接引用定义"
+[footnotes]: footnotes.md "Footnotes"
+[templates]: templates.md "笔记模板"

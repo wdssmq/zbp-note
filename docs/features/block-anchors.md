@@ -1,29 +1,29 @@
-# Block Anchors
+# 块锚点
 
-Block anchors let you link to a specific paragraph, list item, heading, or blockquote within a note — not just to the note as a whole or to a section heading.
+块锚点可以链接到笔记中的特定段落、列表项、标题或引用块，而不仅仅是整篇笔记或某个章节标题。
 
-## Adding a Block Anchor
+## 添加块锚点
 
-Place `^your-id` at the end of any block element. The ID can contain letters, numbers, and hyphens.
+将 `^your-id` 放在任意块元素的末尾。ID 可以包含字母、数字和连字符。
 
-The `^id` marker is hidden in the preview — it's metadata, not visible text.
+`^id` 标记会在预览中隐藏，它属于元数据，不是可见文本。
 
-### Paragraph
+### 段落
 
 ```markdown
 This is an important finding from the experiment. ^key-finding
 ```
 
-Multi-line paragraphs work too — put the anchor at the end of the last line:
+多行段落同样适用，将锚点放在最后一行的末尾：
 
 ```markdown
 The first measurements were inconclusive.
 After repeating the experiment, results became clear. ^experiment-result
 ```
 
-### List item
+### 列表项
 
-Place the anchor at the end of the item text. Foam anchors the entire item, including any sub-items:
+将锚点放在列表项文本的末尾。Foam 会锚定整个列表项，包括其中的子项：
 
 ```markdown
 - Mix dry ingredients thoroughly ^dry-step
@@ -32,7 +32,7 @@ Place the anchor at the end of the item text. Foam anchors the entire item, incl
 - Add wet ingredients ^wet-step
 ```
 
-To anchor an entire list, place `^id` on its own line immediately after the last item (no blank line):
+要锚定整个列表，请将 `^id` 单独放在最后一个列表项之后的紧邻一行（中间不要有空行）：
 
 ```markdown
 - First item
@@ -41,26 +41,26 @@ To anchor an entire list, place `^id` on its own line immediately after the last
 ^shopping-list
 ```
 
-### Heading
+### 标题
 
 ```markdown
 ## Methodology ^methodology
 ```
 
-The anchor applies to the heading line itself, not the entire section below it.
+锚点只应用于标题行本身，不会应用于下面的整个章节。
 
-### Blockquote
+### 引用块
 
-Three placements are supported:
+支持以下三种放置方式：
 
-**As the last line inside the blockquote:**
+**作为引用块中的最后一行：**
 
 ```markdown
 > The only way to do great work is to love what you do.
 > ^jobs-quote
 ```
 
-**On its own line immediately after the blockquote:**
+**单独放在引用块之后的紧邻一行：**
 
 ```markdown
 > We shall fight on the beaches,
@@ -68,7 +68,7 @@ Three placements are supported:
 ^churchill-beaches
 ```
 
-**After the blockquote with a blank line** (useful if your markdown formatter inserts one):
+**在引用块后空一行**（如果 Markdown 格式化工具会自动插入空行，这种方式很有用）：
 
 ```markdown
 > We shall fight on the beaches,
@@ -77,9 +77,9 @@ Three placements are supported:
 ^churchill-beaches
 ```
 
-### Code block
+### 代码块
 
-Place `^id` on its own line after the closing fence. One blank line between the fence and `^id` is also accepted (useful if your markdown formatter adds one automatically):
+将 `^id` 单独放在结束围栏之后的一行。围栏和 `^id` 之间有一个空行也可以接受（如果 Markdown 格式化工具会自动添加空行，这种方式很有用）：
 
 ````markdown
 ```python
@@ -89,9 +89,9 @@ def greet(name):
 ^greet-function
 ````
 
-### Table
+### 表格
 
-Place `^id` on its own line after the table. One blank line is also accepted:
+将 `^id` 单独放在表格之后的一行。中间有一个空行也可以接受：
 
 ```markdown
 | Name  | Score |
@@ -101,49 +101,49 @@ Place `^id` on its own line after the table. One blank line is also accepted:
 ^results-table
 ```
 
-## Linking to a Block
+## 链接到块
 
-Use `[[note-name#^blockid]]` to link directly to a block:
+使用 `[[note-name#^blockid]]` 直接链接到块：
 
 ```markdown
 [[research-notes#^key-insight]]
 [[research-notes#^list-ref]]
 ```
 
-Foam provides autocomplete for block IDs when you type `#^` inside a wikilink.
+在 wikilink 中输入 `#^` 时，Foam 会为块 ID 提供自动补全。
 
-You can also add display text:
+你还可以添加显示文本：
 
 ```markdown
 [[research-notes#^key-insight|See the key insight]]
 ```
 
-## Embedding a Block
+## 嵌入块
 
-Use `![[note-name#^blockid]]` to embed just that block inline:
+使用 `![[note-name#^blockid]]` 将该块直接嵌入正文：
 
 ```markdown
 ![[research-notes#^key-insight]]
 ```
 
-Only the referenced block's content is shown — not the entire note.
+只会显示被引用块的内容，不会显示整篇笔记。
 
-## Renaming a Block ID
+## 重命名块 ID
 
-Place your cursor on a `^blockid` anchor and press `F2` to rename it. Foam updates the anchor and all wikilinks that reference it across your workspace.
+将光标放在 `^blockid` 锚点上并按 `F2` 可重命名它。Foam 会更新工作区中该锚点及所有引用它的 wikilink。
 
-## Diagnostics
+## 诊断
 
-Foam warns you when a block link points to a `^id` that doesn't exist in the target note. A quick-fix lets you pick from the available block IDs.
+当块链接指向目标笔记中不存在的 `^id` 时，Foam 会发出警告。通过快速修复可以从可用的块 ID 中选择。
 
-If you accidentally use the same `^id` twice in one file, Foam flags the duplicate with a warning. A quick-fix replaces it with a freshly generated unique ID.
+如果在同一文件中意外使用了两次相同的 `^id`，Foam 会发出重复标记警告。快速修复会将其替换为新生成的唯一 ID。
 
-## Related
+## 相关内容
 
 - [[wikilinks]] - General linking
 - [[footnotes]] - Adding references and side notes
 - [[embeds]] - Embedding notes and blocks
 
-[wikilinks]: wikilinks.md "Wikilinks"
+[wikilinks]: wikilinks.md "Wikilink"
 [footnotes]: footnotes.md "Footnotes"
 [embeds]: embeds.md "Note Embeds"

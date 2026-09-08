@@ -1,57 +1,57 @@
-# Note Templates
+# 笔记模板
 
-Foam supports note templates which let you customize the starting content of your notes instead of always starting from an empty note.
+Foam 支持笔记模板，让你可以自定义笔记的初始内容，而不必每次都从空白笔记开始。
 
-Foam supports two types of templates:
+Foam 支持两种模板：
 
-- **Markdown templates** (`.md` files) - Simple templates with predefined content and variables
-- **JavaScript templates** (`.js` files) - Smart templates that can adapt based on context and make intelligent decisions
+- **Markdown 模板**（`.md` 文件）- 包含预定义内容和变量的简单模板
+- **JavaScript 模板**（`.js` 文件）- 可根据上下文调整并进行智能判断的模板
 
-Both types of templates are located in the special `.foam/templates` directory of your workspace.
+两种模板都位于工作区专用的 `.foam/templates` 目录中。
 
-## Quickstart
+## 快速开始
 
-### Creating templates
+### 创建模板
 
-**For simple templates:**
+**对于简单模板：**
 
-- Run the `Foam: Create New Template` command from the command palette
-- OR manually create a regular `.md` file in the `.foam/templates` directory
+- 在命令面板中运行 `Foam: Create New Template` 命令
+- 或者在 `.foam/templates` 目录中手动创建普通 `.md` 文件
 
-**For smart templates:**
+**对于智能模板：**
 
-- Create a `.js` file in the `.foam/templates` directory (see [JavaScript Templates](#javascript-templates) section below)
+- 在 `.foam/templates` 目录中创建 `.js` 文件（参见下方的 [JavaScript 模板](#javascript-templates) 部分）
 
 ![Create new template GIF](../../assets/images/create-new-template.gif)
 
-### Using templates
+### 使用模板
 
-To create a note from a template:
+要根据模板创建笔记：
 
-- Run the `Foam: Create New Note From Template` command and follow the instructions. Don't worry if you've not created a template yet! You'll be prompted to create a new simple template if none exist.
-- OR run the `Foam: Create New Note` command, which uses the special default template (`.foam/templates/new-note.md` or `.foam/templates/new-note.js`, if it exists)
+- 运行 `Foam: Create New Note From Template` 命令并按照提示操作。如果还没有创建模板，也不用担心！如果不存在模板，系统会提示你创建新的简单模板。
+- 或者运行 `Foam: Create New Note` 命令，该命令会使用专用的默认模板（如果存在，则使用 `.foam/templates/new-note.md` 或 `.foam/templates/new-note.js`）
 
 ![Create new note from template GIF](../../assets/images/create-new-note-from-template.gif)
 
-## Special templates
+## 特殊模板
 
-### Default template
+### 默认模板
 
-The default template is used by the `Foam: Create New Note` command. Foam will look for these templates in order:
+`Foam: Create New Note` 命令会使用默认模板。Foam 会按以下顺序查找模板：
 
 1. `.foam/templates/new-note.js` (JavaScript template)
 2. `.foam/templates/new-note.md` (Markdown template)
 
-Customize this template to contain content that you want included every time you create a note.
+你可以自定义此模板，使其包含每次创建笔记时都需要加入的内容。
 
-### Default daily note template
+### 默认每日笔记模板
 
-The daily note template is used when creating daily notes (e.g. by using `Foam: Open Daily Note`). Foam will look for these templates in order:
+创建每日笔记时会使用每日笔记模板（例如运行 `Foam: Open Daily Note`）。Foam 会按以下顺序查找模板：
 
 1. `.foam/templates/daily-note.js` (JavaScript template)
 2. `.foam/templates/daily-note.md` (Markdown template)
 
-For a simple markdown template, it is _recommended_ to define the YAML Front-Matter similar to the following:
+对于简单的 Markdown 模板，_建议_按照以下方式定义 YAML Front-Matter：
 
 ```markdown
 ---
@@ -59,66 +59,66 @@ type: daily-note
 ---
 ```
 
-## JavaScript Templates
+## JavaScript 模板
 
-JavaScript templates are a powerful way to create smart, context-aware note templates that can adapt based on the situation. Unlike static Markdown templates, JavaScript templates can make intelligent decisions about what content to include.
+JavaScript 模板是创建智能、上下文感知型笔记模板的强大方式，可以根据情况进行调整。与静态 Markdown 模板不同，JavaScript 模板可以智能判断要包含哪些内容。
 
-**Use JavaScript templates when you want to:**
+**在以下情况下可以使用 JavaScript 模板：**
 
-- Create different note structures based on the day of the week, time, or date
-- Adapt templates based on where the note is being created from
-- Automatically find and link related notes in your workspace
-- Generate content based on existing notes or workspace structure
-- Implement complex logic that static templates cannot handle
+- 根据星期、时间或日期创建不同的笔记结构
+- 根据创建笔记的位置调整模板
+- 自动查找并链接工作区中的相关笔记
+- 根据现有笔记或工作区结构生成内容
+- 实现静态模板无法处理的复杂逻辑
 
-### Basic JavaScript template structure
+### JavaScript 模板基本结构
 
-A JavaScript template is a `.js` file that exports a function returning note content, and optionally location:
+JavaScript 模板是一个 `.js` 文件，它导出一个返回笔记内容以及可选文件位置的函数：
 
 ```javascript
 // .foam/templates/daily-note.js
 async function createNote({ trigger, foam, resolver, foamDate }) {
   const today = dayjs();
-  // or you could use foamDate for day specific notes, see FOAM_DATE_* variables
+  // 也可以使用 foamDate 创建特定日期的笔记，参见 FOAM_DATE_* 变量
   // const day = dayjs(foamDate)
   const formattedDay = today.format('YYYY-MM-DD');
 
-  // if you need a variable you can use the resolver
+  // 如果需要变量，可以使用 resolver
   // const title = await resolver.resolveFromName('FOAM_TITLE');
 
-  console.log('Creating note for today: ' + formattedDay, JSON.stringify(trigger));
+  console.log('正在创建今天的笔记：' + formattedDay, JSON.stringify(trigger));
 
-  let content = `# Daily Note - ${formattedDay}
+  let content = `# 每日笔记 - ${formattedDay}
 
-## Today's focus
+  ## 今天的重点
 - 
 
-## Notes
+  ## 笔记
 - 
 `;
 
   switch (today.day()) {
     case 1: // Monday
-      content = `# Week Planning - ${formattedDay}
+      content = `# 每周计划 - ${formattedDay}
 
-## This week's goals
+    ## 本周目标
 - [ ] Goal 1
 - [ ] Goal 2
 
-## Focus areas
+## 重点领域
 - 
 `;
       break;
     case 5: // Friday
-      content = `# Week Review - ${formattedDay}
+      content = `# 每周回顾 - ${formattedDay}
 
-## What went well
+    ## 做得好的地方
 - 
 
-## What could be improved
+## 可以改进的地方
 - 
 
-## Next week's priorities
+## 下周重点
 - 
 `;
       break;
@@ -131,15 +131,15 @@ async function createNote({ trigger, foam, resolver, foamDate }) {
 }
 ```
 
-### Examples
+### 示例
 
-**Smart meeting notes:**
+**智能会议笔记：**
 
 ```javascript
 async function createNote({ trigger, foam, resolver }) {
   const title = (await resolver.resolveFromName('FOAM_TITLE')) || 'Meeting';
   const today = dayjs();
-  // Detect meeting type from title
+  // 根据标题检测会议类型
   const isStandup = title.toLowerCase().includes('standup');
   const isReview = title.toLowerCase().includes('review');
 
@@ -148,33 +148,33 @@ async function createNote({ trigger, foam, resolver }) {
 `;
 
   if (isStandup) {
-    template += `## What I did yesterday
+    template += `## 我昨天做了什么
 - 
 
-## What I'm doing today
+## 我今天要做什么
 - 
 
-## Blockers
+## 阻碍
 - 
 `;
   } else if (isReview) {
-    template += `## What went well
+    template += `## 做得好的地方
 - 
 
-## What could be improved
+## 可以改进的地方
 - 
 
-## Action items
+## 行动项
 - [ ] 
 `;
   } else {
-    template += `## Agenda
+    template += `## 议程
 - 
 
-## Notes
+## 笔记
 - 
 
-## Action items
+## 行动项
 - [ ] 
 `;
   }
@@ -186,15 +186,15 @@ async function createNote({ trigger, foam, resolver }) {
 }
 ```
 
-### Template result format
+### 模板结果格式
 
-JavaScript templates must return an object with:
+JavaScript 模板必须返回包含以下内容的对象：
 
-- `content` (required): The note content as a string. Foam variables in it (e.g. `${FOAM_TITLE}`) are resolved like in a Markdown template
-- `filepath` (required): Custom file path for the note
-  - NOTE: the path must be within the workspace.
-    - A relative path will be resolved based on the `onRelativePath` command configuration.
-    - An absolute path will be taken as is, if it falls within the workspace. Otherwise it will be considered to be from the workspace root
+- `content`（必需）：作为字符串的笔记内容。其中的 Foam 变量（例如 `${FOAM_TITLE}`）会像 Markdown 模板中的变量一样解析
+- `filepath`（必需）：笔记的自定义文件路径
+  - 注意：路径必须位于工作区内。
+    - 相对路径会根据 `onRelativePath` 命令配置进行解析。
+    - 如果绝对路径位于工作区内，则按原样使用；否则会被视为相对于工作区根目录的路径
 
 ```javascript
 return {
@@ -203,144 +203,138 @@ return {
 };
 ```
 
-### Security and limitations
+### 安全性和限制
 
-JavaScript templates execute real JavaScript. Foam guards where and when
-they run, but the in-process sandbox is **not** a security boundary — a
-malicious template can escape it. Trust controls are the real protection:
+JavaScript 模板会执行真实的 JavaScript。Foam 会限制其运行的位置和时机，
+但进程内沙箱**不是**安全边界，恶意模板可能突破沙箱。真正的保护措施是信任控制：
 
-- ✅ Only run in **trusted** VS Code workspaces
-- ✅ When using the `foam` CLI, only run with the `--trust` flag
-- ❌ **Never run under the MCP server.** `foam mcp` and the
-  `create_resource` tool refuse `.js` templates with an
-  `untrusted_workspace` error
-- ⏱ 10-second execution timeout
+- ✅ 只在**受信任的** VS Code 工作区中运行
+- ✅ 使用 `foam` CLI 时，只通过 `--trust` 标志运行
+- ❌ **绝不要在 MCP 服务器下运行。**`foam mcp` 和 `create_resource` 工具会拒绝 `.js` 模板，并返回 `untrusted_workspace` 错误
+- ⏱ 执行超时时间为 10 秒
 
-> ⚠️ **Treat a `new-note.js` like a script you'd execute by hand.
-> ** Only use JS templates from workspaces whose contributors you trust.
+> ⚠️ **请将 `new-note.js` 视为需要手动执行的脚本。
+> ** 只使用来自可信工作区贡献者的 JS 模板。
 
-If you don't need the power of arbitrary JavaScript, prefer a Markdown
-template — those run everywhere (CLI, MCP, web extension) and have no
-trust requirement.
+如果不需要任意 JavaScript 的能力，建议使用 Markdown 模板，因为它可以在任何地方（CLI、MCP、Web 扩展）运行，且不需要信任权限。
 
-## Markdown templates
+## Markdown 模板
 
-Markdown templates are a simple way to create notes
+Markdown 模板是创建笔记的简单方式。
 
-**Use Markdown templates when you want to:**
+**在以下情况下可以使用 Markdown 模板：**
 
-- Create simple, consistent note structures
-- Use basic variables and placeholders
-- Keep templates easy to read and modify
+- 创建简单且一致的笔记结构
+- 使用基本变量和占位符
+- 让模板易于阅读和修改
 
-### Variables
+### 变量
 
-Markdown templates can use all the variables available in [VS Code Snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables).
+Markdown 模板可以使用 [VS Code 代码片段](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables)提供的所有变量。
 
-In addition, you can also use variables provided by Foam:
+此外，还可以使用 Foam 提供的变量：
 
-| Name                 | Description                                                                                                                                                                                                                                                                                |
+| 名称                 | 描述                                                                                                                                                                                                                                               |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `FOAM_SELECTED_TEXT` | Foam will fill it with selected text when creating a new note, if any text is selected. Selected text will be replaced with a wikilink to the new                                                                                                                                          |
-| `FOAM_TITLE`         | The title of the note. If used, Foam will prompt you to enter a title for the note.                                                                                                                                                                                                        |
-| `FOAM_TITLE_SAFE`    | The title of the note in a file system safe format. If used, Foam will prompt you to enter a title for the note unless `FOAM_TITLE` has already caused the prompt.                                                                                                                         |
-| `FOAM_SLUG`          | The sluggified title of the note (using the default github slug method). If used, Foam will prompt you to enter a title for the note unless `FOAM_TITLE` has already caused the prompt.                                                                                                    |
-| `FOAM_CURRENT_DIR`   | The current editor's directory path. Resolves to the directory of the currently active file, or falls back to workspace root if no editor is active. Useful for creating notes in the current directory context.                                                                           |
-| `FOAM_DATE_FORMAT`   | The Foam date formatted using a [dayjs format string](https://day.js.org/docs/en/display/format). Defaults to ISO 8601 with local timezone offset (e.g. `2026-03-12T22:06:55+01:00`). Use as `$FOAM_DATE_FORMAT` for the default, or `${FOAM_DATE_FORMAT:YYYY-MM-DD}` for a custom format. |
-| `FOAM_DATE_*`        | `FOAM_DATE_YEAR`, `FOAM_DATE_MONTH`, `FOAM_DATE_WEEK`, `FOAM_DATE_DAY_ISO` etc. Foam-specific versions of [VS Code's datetime snippet variables](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables). Prefer these versions over VS Code's.                          |
+| `FOAM_SELECTED_TEXT` | 创建新笔记时，如果有选中文本，Foam 会填入该文本。选中文本会被替换为指向新笔记的 wikilink。 |
+| `FOAM_TITLE`         | 笔记标题。使用此变量时，Foam 会提示你输入笔记标题。 |
+| `FOAM_TITLE_SAFE`    | 文件系统安全格式的笔记标题。使用此变量时，除非 `FOAM_TITLE` 已经触发提示，否则 Foam 会提示你输入笔记标题。 |
+| `FOAM_SLUG`          | 笔记的 slug 化标题（使用默认的 GitHub slug 方法）。使用此变量时，除非 `FOAM_TITLE` 已经触发提示，否则 Foam 会提示你输入笔记标题。 |
+| `FOAM_CURRENT_DIR`   | 当前编辑器的目录路径。解析为当前活动文件所在的目录；如果没有活动编辑器，则回退到工作区根目录。适合在当前目录上下文中创建笔记。 |
+| `FOAM_DATE_FORMAT`   | 使用 [dayjs 格式字符串](https://day.js.org/docs/en/display/format)格式化的 Foam 日期。默认为带本地时区偏移的 ISO 8601 格式（例如 `2026-03-12T22:06:55+01:00`）。默认格式使用 `$FOAM_DATE_FORMAT`，自定义格式使用 `${FOAM_DATE_FORMAT:YYYY-MM-DD}`。 |
+| `FOAM_DATE_*`        | `FOAM_DATE_YEAR`、`FOAM_DATE_MONTH`、`FOAM_DATE_WEEK`、`FOAM_DATE_DAY_ISO` 等 Foam 专用版本的 [VS Code 日期时间代码片段变量](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables)。建议优先使用这些版本。 |
 
-### `FOAM_DATE_FORMAT` variable
+### `FOAM_DATE_FORMAT` 变量
 
-`FOAM_DATE_FORMAT` lets you format the Foam date using a [dayjs format string](https://day.js.org/docs/en/display/format):
+`FOAM_DATE_FORMAT` 允许你使用 [dayjs 格式字符串](https://day.js.org/docs/en/display/format)格式化 Foam 日期：
 
-- `$FOAM_DATE_FORMAT` — ISO 8601 local datetime with timezone offset, e.g. `2026-03-12T22:06:55+01:00`
-- `${FOAM_DATE_FORMAT:YYYY-MM-DD}` — date only, e.g. `2026-03-12`
-- `${FOAM_DATE_FORMAT:HH:mm}` — time only, e.g. `22:06`
+- `$FOAM_DATE_FORMAT` — 带时区偏移的 ISO 8601 本地日期时间，例如 `2026-03-12T22:06:55+01:00`
+- `${FOAM_DATE_FORMAT:YYYY-MM-DD}` — 仅日期，例如 `2026-03-12`
+- `${FOAM_DATE_FORMAT:HH:mm}` — 仅时间，例如 `22:06`
 
-The format string (the part after `:`) uses [dayjs tokens](https://day.js.org/docs/en/display/format). Common tokens: `YYYY` (4-digit year), `MM` (month), `DD` (day), `HH` (hour), `mm` (minute), `ss` (second), `Z` (timezone offset).
+格式字符串（`:` 后面的部分）使用 [dayjs 标记](https://day.js.org/docs/en/display/format)。常用标记包括：`YYYY`（4 位年份）、`MM`（月份）、`DD`（日期）、`HH`（小时）、`mm`（分钟）、`ss`（秒）、`Z`（时区偏移）。
 
-Like all `FOAM_DATE_*` variables, this uses the Foam date rather than the current time, so it works correctly with relative daily notes (e.g. `/tomorrow`).
+与所有 `FOAM_DATE_*` 变量一样，它使用 Foam 日期而不是当前时间，因此可以正确用于相对每日笔记（例如 `/tomorrow`）。
 
-### `FOAM_DATE_*` variables
+### `FOAM_DATE_*` 变量
 
-Foam defines its own set of datetime variables that have a similar behaviour as [VS Code's datetime snippet variables](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables).
+Foam 定义了自己的一组日期时间变量，其行为类似于 [VS Code 的日期时间代码片段变量](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables)。
 
-Supported variables include:
+支持的变量包括：
 
-- `FOAM_DATE_YEAR`: 4-digit year (e.g. 2025)
-- `FOAM_DATE_MONTH`: 2-digit month (e.g. 09)
-- `FOAM_DATE_WEEK`: ISO 8601 week number (e.g. 37)
-- `FOAM_DATE_WEEK_YEAR`: the year of the ISO 8601 week number. The year that contains the Thursday of the current week, may vary from calendar year near Jan 1. Often used with `FOAM_DATE_WEEK`.
-- `FOAM_DATE_DAY_ISO`: ISO 8601 weekday number (1-7, where Monday=1, Sunday=7)
-- `FOAM_DATE_DATE`: 2-digit day of month (e.g. 15)
-- `FOAM_DATE_DAY_NAME`: Full weekday name (e.g. Monday)
-- `FOAM_DATE_DAY_NAME_SHORT`: Short weekday name (e.g. Mon)
-- `FOAM_DATE_HOUR`, `FOAM_DATE_MINUTE`, `FOAM_DATE_SECOND`, `FOAM_DATE_SECONDS_UNIX`, etc.
+- `FOAM_DATE_YEAR`：4 位年份（例如 2025）
+- `FOAM_DATE_MONTH`：2 位月份（例如 09）
+- `FOAM_DATE_WEEK`：ISO 8601 周数（例如 37）
+- `FOAM_DATE_WEEK_YEAR`：ISO 8601 周数所属的年份，即包含当前周星期四的年份；1 月 1 日附近可能与日历年份不同，通常与 `FOAM_DATE_WEEK` 一起使用。
+- `FOAM_DATE_DAY_ISO`：ISO 8601 星期编号（1-7，其中星期一为 1，星期日为 7）
+- `FOAM_DATE_DATE`：2 位月份日期（例如 15）
+- `FOAM_DATE_DAY_NAME`：完整的星期名称（例如 Monday）
+- `FOAM_DATE_DAY_NAME_SHORT`：简写的星期名称（例如 Mon）
+- `FOAM_DATE_HOUR`、`FOAM_DATE_MINUTE`、`FOAM_DATE_SECOND`、`FOAM_DATE_SECONDS_UNIX` 等。
 
-For example, `FOAM_DATE_YEAR` has the same behaviour as VS Code's `CURRENT_YEAR`, `FOAM_DATE_SECONDS_UNIX` has the same behaviour as `CURRENT_SECONDS_UNIX`, etc. `FOAM_DATE_DAY_ISO` returns the ISO weekday number (Monday=1, Sunday=7), which is useful for ISO week date formats like `2025-W37-5`.
+例如，`FOAM_DATE_YEAR` 的行为与 VS Code 的 `CURRENT_YEAR` 相同，`FOAM_DATE_SECONDS_UNIX` 的行为与 `CURRENT_SECONDS_UNIX` 相同，其他变量也是如此。`FOAM_DATE_DAY_ISO` 返回 ISO 星期编号（星期一为 1，星期日为 7），适用于 `2025-W37-5` 这样的 ISO 周日期格式。
 
-By default, prefer using the `FOAM_DATE_` versions. The datetime used to compute the values will be the same for both `FOAM_DATE_` and VS Code's variables, with the exception of the creation notes using the daily note template.
+默认情况下，建议优先使用 `FOAM_DATE_` 版本。除使用每日笔记模板创建笔记的情况外，`FOAM_DATE_` 变量和 VS Code 变量计算值时使用的日期时间相同。
 
-For more nitty-gritty details about the supported date formats, [see here](https://github.com/foambubble/foam/blob/main/packages/foam-core/src/templates/variable-resolver.ts).
+有关支持日期格式的更多细节，请[参阅此处](https://github.com/foambubble/foam/blob/main/packages/foam-core/src/templates/variable-resolver.ts)。
 
-#### Relative daily notes
+#### 相对每日笔记
 
-When referring to daily notes, you can use the relative snippets (`/+1d`, `/tomorrow`, etc.). In these cases, the new notes will be created with the daily note template, but the datetime used should be the relative datetime, not the current datetime.
-By using the `FOAM_DATE_` versions of the variables, the correct relative date will populate the variables, instead of the current datetime.
+引用每日笔记时，可以使用相对片段（`/+1d`、`/tomorrow` 等）。在这些情况下，新笔记会使用每日笔记模板创建，但使用的日期时间应为相对日期时间，而不是当前日期时间。
+使用 `FOAM_DATE_` 版本的变量，可以将正确的相对日期填入变量，而不是填入当前日期时间。
 
 For example, given this daily note template (`.foam/templates/daily-note.md`):
 
 ```markdown
-# $FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE
+## $FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE
 
-## Here's what I'm going to do today
+## 今天计划做什么
 
 - Thing 1
 - Thing 2
 ```
 
-When the `/tomorrow` snippet is used, `FOAM_DATE_` variables will be populated with tomorrow's date, as expected.
-If instead you were to use the VS Code versions of these variables, they would be populated with today's date, not tomorrow's, causing unexpected behaviour.
+使用 `/tomorrow` 片段时，`FOAM_DATE_` 变量会按预期填入明天的日期。如果改用 VS Code 版本的变量，它们会填入今天的日期，而不是明天的日期，从而导致意外行为。
 
-When creating notes in any other scenario, the `FOAM_DATE_` values are computed using the same datetime as the VS Code ones, so the `FOAM_DATE_` versions can be used in all scenarios by default.
+在其他场景中创建笔记时，`FOAM_DATE_` 值会使用与 VS Code 变量相同的日期时间计算，因此默认情况下可以在所有场景中使用 `FOAM_DATE_` 版本。
 
-### Metadata
+### 元数据
 
-**Markdown templates** can also contain metadata about the templates themselves. The metadata is defined in YAML "Frontmatter" blocks within the templates.
+**Markdown 模板**还可以包含描述模板本身的元数据。元数据定义在模板中的 YAML“Frontmatter”块中。
 
-| Name          | Description                                                                                                                      |
+| 名称          | 描述                                                                                                                             |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `filepath`    | The filepath to use when creating the new note. If the filepath is a relative filepath, it is relative to the current workspace. |
-| `name`        | A human readable name to show in the template picker.                                                                            |
-| `description` | A human readable description to show in the template picker.                                                                     |
+| `filepath`    | 创建新笔记时使用的文件路径。如果是相对路径，则相对于当前工作区。 |
+| `name`        | 在模板选择器中显示的易读名称。 |
+| `description` | 在模板选择器中显示的易读描述。 |
 
-Foam-specific variables (e.g. `$FOAM_TITLE`) can be used within template metadata. However, VS Code snippet variables are ([currently](https://github.com/foambubble/foam/pull/655)) not supported.
+模板元数据中可以使用 Foam 专用变量（例如 `$FOAM_TITLE`）。但是，目前[还不支持](https://github.com/foambubble/foam/pull/655) VS Code 代码片段变量。
 
-#### `filepath` attribute
+#### `filepath` 属性
 
-> In a [restricted workspace](https://code.visualstudio.com/docs/editor/workspace-trust), notes must be created inside the workspace: a `filepath` that points outside it is refused. Trust the workspace to allow it.
+> 在[受限工作区](https://code.visualstudio.com/docs/editor/workspace-trust)中，笔记必须创建在工作区内：指向工作区外部的 `filepath` 会被拒绝。请信任该工作区以允许此操作。
 
-It is possible to vary the `filepath` value based on the current date using the `FOAM_DATE_*` variables. This is especially useful for the [[daily-notes]] template if you wish to organize by years, months, etc. Below is an example of a daily-note template metadata section that will create new daily notes under the `journal/YEAR/MONTH-MONTH_NAME/` filepath. For example, when a note is created on November 15, 2022, a new file will be created at `C:\Users\foam_user\foam_notes\journal\2022\11-Nov\2022-11-15-daily-note.md`. This method also respects the creation of daily notes relative to the current date (i.e. `/+1d`).
+可以使用 `FOAM_DATE_*` 变量根据当前日期改变 `filepath` 的值。如果希望按年份、月份等组织每日笔记，这对 [[daily-notes]] 模板特别有用。下面是一个每日笔记模板元数据部分的示例，它会在 `journal/YEAR/MONTH/` 路径下创建新的每日笔记。例如，2022 年 11 月 15 日创建笔记时，新文件会创建在 `C:\Users\foam_user\foam_notes\journal\2022\11\15.md`。此方法也支持相对于当前日期创建每日笔记（即 `/+1d`）。
 
 ```markdown
 ---
 type: daily-note
 foam_template:
-  description: Daily Note
-  filepath: '/journal/$FOAM_DATE_YEAR/$FOAM_DATE_MONTH-$FOAM_DATE_MONTH_NAME_SHORT/$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE-daily-note.md'
+  description: 每日笔记
+  filepath: '/journal/$FOAM_DATE_YEAR/$FOAM_DATE_MONTH/$FOAM_DATE_DATE.md'
 ---
 
-# $FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE Daily Notes
+# $FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE 每日笔记
 ```
 
-##### Creating notes in the current directory
+##### 在当前目录中创建笔记
 
-To create notes in the same directory as your currently active file, use the `FOAM_CURRENT_DIR` variable in your template's `filepath`:
+要在当前活动文件所在的目录中创建笔记，请在模板的 `filepath` 中使用 `FOAM_CURRENT_DIR` 变量：
 
 ```markdown
 ---
 foam_template:
-  name: Current Directory Note
+  name: 当前目录笔记
   filepath: '$FOAM_CURRENT_DIR/$FOAM_SLUG.md'
 ---
 
@@ -349,67 +343,67 @@ foam_template:
 $FOAM_SELECTED_TEXT
 ```
 
-**Best practices for filepath patterns:**
+**filepath 模式的最佳实践：**
 
-- **Explicit current directory:** `$FOAM_CURRENT_DIR/$FOAM_SLUG.md` - Creates notes in the current editor's directory
-- **Workspace root:** `/$FOAM_SLUG.md` - Always creates notes in workspace root
-- **Subdirectories:** `$FOAM_CURRENT_DIR/meetings/$FOAM_SLUG.md` - Creates notes in subdirectories relative to current location
+- **明确的当前目录：** `$FOAM_CURRENT_DIR/$FOAM_SLUG.md` - 在当前编辑器所在目录创建笔记
+- **工作区根目录：** `/$FOAM_SLUG.md` - 始终在工作区根目录创建笔记
+- **子目录：** `$FOAM_CURRENT_DIR/meetings/$FOAM_SLUG.md` - 在相对于当前位置的子目录中创建笔记
 
-The `FOAM_CURRENT_DIR` approach is recommended over relative paths (like `./file.md`) because it makes the template's behavior explicit and doesn't depend on configuration settings.
+相比相对路径（如 `./file.md`），更推荐使用 `FOAM_CURRENT_DIR` 方法，因为它能明确表达模板行为，不依赖配置设置。
 
-#### `name` and `description` attributes
+#### `name` 和 `description` 属性
 
-These attributes provide a human readable name and description to be shown in the template picker (e.g. When a user uses the `Foam: Create New Note From Template` command):
+这些属性提供易读的名称和描述，用于显示在模板选择器中（例如用户使用 `Foam: Create New Note From Template` 命令时）：
 
 ![Template Picker annotated with attributes](../../assets/images/template-picker-annotated.png)
 
-#### Adding template metadata to an existing YAML Frontmatter block
+#### 将模板元数据添加到已有的 YAML Frontmatter 块
 
-If your template already has a YAML Frontmatter block, you can add the Foam template metadata to it.
+如果模板已经有 YAML Frontmatter 块，可以将 Foam 模板元数据添加到其中。
 
-Foam only supports adding the template metadata to _YAML_ Frontmatter blocks. If the existing Frontmatter block uses some other format (e.g. JSON), you will have to add the template metadata to its own YAML Frontmatter block.
+Foam 只支持将模板元数据添加到 _YAML_ Frontmatter 块。如果现有 Frontmatter 块使用其他格式（例如 JSON），则必须将模板元数据添加到单独的 YAML Frontmatter 块中。
 
-Further, the template metadata must be provided as a [YAML block mapping](https://yaml.org/spec/1.2/spec.html#id2798057), with the attributes placed on the lines immediately following the `foam_template` line:
+此外，模板元数据必须以 [YAML 块映射](https://yaml.org/spec/1.2/spec.html#id2798057)的形式提供，属性必须放在紧跟 `foam_template` 行的后续行中：
 
 ```yaml
 ---
 existing_frontmatter: "Existing Frontmatter block"
-foam_template: # this is a YAML "Block" mapping ("Flow" mappings aren't supported)
-  name: My Note Template # Attributes must be on the lines immediately following `foam_template`
-  description: This is my note template
+foam_template: # 这是 YAML“块”映射（不支持“流”映射）
+  name: 我的笔记模板 # 属性必须放在紧跟 `foam_template` 的后续行中
+  description: 这是我的笔记模板
   filepath: `journal/$FOAM_TITLE.md`
 ---
-This is the rest of the template
+这是模板的其余内容
 ```
 
-#### Adding template metadata to its own YAML Frontmatter block
+#### 将模板元数据添加到单独的 YAML Frontmatter 块
 
-You can add the template metadata to its own YAML Frontmatter block at the start of the template:
+你可以在模板开头的单独 YAML Frontmatter 块中添加模板元数据：
 
 ```yaml
 ---
 foam_template:
-  name: My Note Template
-  description: This is my note template
+  name: 我的笔记模板
+  description: 这是我的笔记模板
   filepath: 'journal/$FOAM_TITLE.md'
 ---
-This is the rest of the template
+这是模板的其余内容
 ```
 
-If the note already has a Frontmatter block, a Foam-specific Frontmatter block can be added to the start of the template. The Foam-specific Frontmatter block must always be placed at the very beginning of the file, and only whitespace can separate the two Frontmatter blocks.
+如果笔记已经有 Frontmatter 块，可以在模板开头添加 Foam 专用的 Frontmatter 块。Foam 专用 Frontmatter 块必须始终位于文件最开始的位置，两个 Frontmatter 块之间只能有空白字符。
 
 ```yaml
 ---
 foam_template:
-  name: My Note Template
-  description: This is my note template
+  name: 我的笔记模板
+  description: 这是我的笔记模板
   filepath: 'journal/$FOAM_TITLE.md'
 ---
 
 ---
-existing_frontmatter: 'Existing Frontmatter block'
+existing_frontmatter: '已有 Frontmatter 块'
 ---
-This is the rest of the template
+这是模板的其余内容
 ```
 
 [daily-notes]: daily-notes.md 'Daily Notes'

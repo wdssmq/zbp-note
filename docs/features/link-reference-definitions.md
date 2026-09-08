@@ -1,14 +1,14 @@
-# Link Reference Definitions
+# 链接引用定义
 
-Link reference definitions make your notes compatible with standard Markdown processors by converting wikilinks to standard Markdown references.
+链接引用定义会将 wikilink 转换为标准 Markdown 引用，使你的笔记兼容标准 Markdown 处理器。
 
-Foam doesn't need references in order to work, but this feature is aimed at supporting other tools you might want to integrate with.
+Foam 本身不需要引用定义也能正常工作，但此功能旨在支持你可能希望集成的其他工具。
 
-## What Are Link Reference Definitions?
+## 什么是链接引用定义
 
-Foam can automatically add reference definitions to the bottom of your notes:
+Foam 可以自动将引用定义添加到笔记底部：
 
-**Your note:**
+**你的笔记：**
 
 ```markdown
 # Machine Learning
@@ -16,7 +16,7 @@ Foam can automatically add reference definitions to the bottom of your notes:
 Related to [[Data Science]] and [[Statistics]].
 ```
 
-**With reference definitions:**
+**添加引用定义后：**
 
 ```markdown
 # Machine Learning
@@ -27,9 +27,9 @@ Related to [[Data Science]] and [[Statistics]].
 [Statistics]: statistics.md 'Statistics'
 ```
 
-## Enabling Reference Definitions
+## 启用引用定义
 
-Configure in your settings:
+在设置中进行配置：
 
 ```json
 {
@@ -37,24 +37,24 @@ Configure in your settings:
 }
 ```
 
-**Options:**
+**选项：**
 
-- `"off"` - Disabled (default)
-- `"withoutExtensions"` - References without extension
-- `"withExtensions"` - References with extension
+- `"off"` - 禁用（默认）
+- `"withoutExtensions"` - 不带扩展名的引用
+- `"withExtensions"` - 带扩展名的引用
 
-If you are using your notes only within Foam, you can keep definitions `off` (also to reduce clutter), otherwise pick your setting based on what is required by your use case.
+如果只在 Foam 中使用笔记，可以保持 `off`（也能减少杂乱）；否则请根据使用场景选择合适的设置。
 
-## How It Works
+## 工作原理
 
-1. Scans your note for wikilinks
-2. Generates reference definitions when you save
-3. Updates definitions when links change
-4. Maintains the auto-generated section
+1. 扫描笔记中的 wikilink
+2. 保存时生成引用定义
+3. 链接发生变化时更新定义
+4. 维护自动生成的区域
 
-## Benefits
+## 优点
 
-- **Standard Markdown compatibility** - Works with any Markdown processor
-- **Publishing platforms** - Compatible with GitHub Pages, Jekyll, etc.
-- **Future-proofing** - Not locked into Foam-specific format
-- **Team collaboration** - Others can read notes without Foam
+- **标准 Markdown 兼容性** - 可与任何 Markdown 处理器配合使用
+- **发布平台** - 兼容 GitHub Pages、Jekyll 等平台
+- **面向未来** - 不局限于 Foam 专用格式
+- **团队协作** - 其他人无需安装 Foam 也能阅读笔记

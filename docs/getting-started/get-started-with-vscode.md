@@ -1,227 +1,227 @@
-# Using Foam with VS Code Features
+# 使用 VS Code 功能配合 Foam
 
-Foam builds on Visual Studio Code's powerful editing capabilities, integrating seamlessly with VS Code's native features to create a comprehensive knowledge management experience. This guide explores how to leverage VS Code's built-in functionality alongside Foam.
+Foam 基于 Visual Studio Code 强大的编辑能力，将其原生功能无缝融入其中，提供完整的知识管理体验。本指南介绍如何将 VS Code 的内置功能与 Foam 结合使用。
 
-### Keyboard shortcuts
+### 键盘快捷键
 
-VS Code supports various **keyboard shortcuts**, the most important for us are:
+VS Code 支持各种**键盘快捷键**，其中对我们最重要的是：
 
-| Shortcut      | Action                        |
+| 快捷键        | 操作                          |
 | ------------- | ----------------------------- |
-| `cmd+N`       | create a new file             |
-| `cmd+S`       | save the current file         |
-| `cmd+O`       | open a file                   |
-| `cmd+P`       | use quickpick to open a file  |
-| `alt+D`       | open the daily note for today |
-| `alt+H`       | open the daily note for a day |
-| `cmd+shift+P` | invoke a command (see below)  |
+| `cmd+N`       | 创建新文件                    |
+| `cmd+S`       | 保存当前文件                  |
+| `cmd+O`       | 打开文件                      |
+| `cmd+P`       | 使用快速选择打开文件          |
+| `alt+D`       | 打开今天的每日笔记             |
+| `alt+H`       | 打开指定日期的每日笔记         |
+| `cmd+shift+P` | 调用命令（见下文）             |
 
-For more information, see the [VS Code keyboard cheat sheets](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference), where you can also see how to customize your keybindings.
+更多信息请参阅 [VS Code 键盘快捷键速查表](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)，其中还介绍了如何自定义键绑定。
 
-### Commands
+### 命令
 
-Commands make VS Code extremely powerful.
+命令让 VS Code 变得非常强大。
 
-To invoke a command, press `cmd+shift+P` and select the command you want to execute.
-For example, to see the Foam graph:
+要调用命令，请按 `cmd+shift+P`，然后选择要执行的命令。
+例如，要查看 Foam 图谱：
 
-- press `cmd+shift+P` to open the command bar
-- start typing `show graph`
-- select the `Foam: Show Graph` command
+- 按 `cmd+shift+P` 打开命令栏
+- 开始输入 `show graph`
+- 选择 `Foam: Show Graph` 命令
 
-And watch the magic unfold.
+然后就能看到图谱呈现出来。
 
-To see all foam commands, type "foam" in the command bar.
-For more information on commands, see [commands on the VS Code site](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+要查看所有 Foam 命令，请在命令栏中输入 `foam`。
+有关命令的更多信息，请参阅 [VS Code 网站上的命令说明](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)。
 
-If you want to learn more about VS Code, check out their [website](https://code.visualstudio.com/docs#first-steps).
+如需进一步了解 VS Code，请查看其[网站](https://code.visualstudio.com/docs#first-steps)。
 
-### Panels
+### 面板
 
-Foam integrates with VS Code panels to provide insights into individual notes and the whole knowledge base.
+Foam 与 VS Code 面板集成，用于查看单篇笔记和整个知识库的信息。
 
-- **`Foam: links`**: Shows all notes that link to and from the currently active note, helping you understand connections and navigate your knowledge graph
-- **`Foam: Orphaned Notes`**: Displays notes that have no incoming or outgoing links, helping you identify isolated content that might need better integration
-- **`Tag Explorer`**: Shows all tags used across your workspace in a hierarchical view, see [[tags]] for more information on tags
-- **`Foam: Graph`**: Visual representation of your note connections (also available as a separate graph view)
+- **`Foam: links`**：显示所有链接到当前活动笔记或从当前活动笔记链接出去的笔记，帮助你了解连接关系并浏览知识图谱
+- **`Foam: Orphaned Notes`**：显示没有入链或出链的笔记，帮助你找出可能需要更好整合的孤立内容
+- **`Tag Explorer`**：以层级视图显示工作区中使用的所有标签，更多标签信息请参阅 [[tags]]
+- **`Foam: Graph`**：以可视化方式展示笔记之间的连接（也可以使用独立的图谱视图）
 
-### Styling and Themes
+### 样式和主题
 
-VS Code is very configurable when it comes to themes and style. Find your ideal set up by running the command `Color Theme`.
-For more information see the [VS Code documentation](https://code.visualstudio.com/docs/configure/themes).
+VS Code 在主题和样式方面提供了丰富的配置选项。运行 `Color Theme` 命令即可找到适合你的设置。
+更多信息请参阅 [VS Code 文档](https://code.visualstudio.com/docs/configure/themes)。
 
-### Multi-Cursor Editing
+### 多光标编辑
 
-Edit multiple locations simultaneously for efficient note management:
+同时编辑多个位置，以便高效管理笔记：
 
-**Basic Multi-Cursor:**
+**多光标基础操作：**
 
-- `Alt+Click` / `Option+Click` - Add cursor at click location
-- `Ctrl+Alt+Down` / `Cmd+Option+Down` - Add cursor below
-- `Ctrl+Alt+Up` / `Cmd+Option+Up` - Add cursor above
-- `Ctrl+D` / `Cmd+D` - Select next occurrence of word
-- `Ctrl+Shift+L` / `Cmd+Shift+L` - Select all occurrences
+- `Alt+Click` / `Option+Click` - 在点击位置添加光标
+- `Ctrl+Alt+Down` / `Cmd+Option+Down` - 在下方添加光标
+- `Ctrl+Alt+Up` / `Cmd+Option+Up` - 在上方添加光标
+- `Ctrl+D` / `Cmd+D` - 选择单词的下一个匹配项
+- `Ctrl+Shift+L` / `Cmd+Shift+L` - 选择所有匹配项
 
-**Bulk wikilink creation:**
+**批量创建 wikilink：**
 
-1. **Select a word** (e.g., "Python")
-2. **Press `Ctrl+Shift+L`** to select all occurrences
-3. **Type `[[]]`** to wrap all instances
-4. **Arrow key** to position cursor inside brackets
+1. **选择一个单词**（例如 “Python”）
+2. **按 `Ctrl+Shift+L`** 选择所有匹配项
+3. **输入 `[[]]`** 将所有实例包裹起来
+4. **按方向键** 将光标移到方括号内
 
-### Find and Replace
+### 查找和替换
 
-Powerful search and replace for note maintenance:
+使用强大的搜索和替换功能维护笔记：
 
-**Basic Find/Replace:**
+**查找/替换基础操作：**
 
-- `Ctrl+F` / `Cmd+F` - Find in current file
-- `Ctrl+H` / `Cmd+H` - Replace in current file
-- `Ctrl+Shift+F` / `Cmd+Shift+F` - Find across workspace
-- `Ctrl+Shift+H` / `Cmd+Shift+H` - Replace across workspace
+- `Ctrl+F` / `Cmd+F` - 在当前文件中查找
+- `Ctrl+H` / `Cmd+H` - 在当前文件中替换
+- `Ctrl+Shift+F` / `Cmd+Shift+F` - 在整个工作区中查找
+- `Ctrl+Shift+H` / `Cmd+Shift+H` - 在整个工作区中替换
 
-### Text Folding
+### 折叠文本
 
-Organize long notes with collapsible sections:
+使用可折叠的章节整理长篇笔记：
 
-**Folding Controls:**
+**折叠控制：**
 
-- **Click fold icons** in the gutter next to headings
-- `Ctrl+Shift+[` / `Cmd+Option+[` - Fold current section
-- `Ctrl+Shift+]` / `Cmd+Option+]` - Unfold current section
-- `Ctrl+K Ctrl+0` / `Cmd+K Cmd+0` - Fold all
-- `Ctrl+K Ctrl+J` / `Cmd+K Cmd+J` - Unfold all
+- **点击折叠图标**，它位于标题旁的编辑器装订线中
+- `Ctrl+Shift+[` / `Cmd+Option+[` - 折叠当前章节
+- `Ctrl+Shift+]` / `Cmd+Option+]` - 展开当前章节
+- `Ctrl+K Ctrl+0` / `Cmd+K Cmd+0` - 全部折叠
+- `Ctrl+K Ctrl+J` / `Cmd+K Cmd+J` - 全部展开
 
-## File Management
+## 文件管理
 
-### Explorer Integration
+### 资源管理器集成
 
-Leverage VS Code's file explorer for note organization:
+利用 VS Code 的文件资源管理器整理笔记：
 
-**File Operations:**
+**文件操作：**
 
-- **Drag and drop** files to reorganize
-- **Right-click context menus** for quick actions
-- **New file/folder** creation with shortcuts
-- **Bulk selection** with Ctrl+Click / Cmd+Click
+- **拖放**文件以重新组织结构
+- 使用**右键上下文菜单**快速执行操作
+- 使用快捷方式创建**新文件/文件夹**
+- 使用 Ctrl+Click / Cmd+Click 进行**批量选择**
 
-**Quick File Actions:**
+**快速文件操作：**
 
-- `F2` - Rename file (Foam updates links automatically)
-- `Delete` - Move to trash
-- `Ctrl+C` / `Cmd+C` then `Ctrl+V` / `Cmd+V` - Copy/paste files
-- **Right-click → Reveal in Explorer/Finder** - Open in file system
+- `F2` - 重命名文件（Foam 会自动更新链接）
+- `Delete` - 移到回收站
+- `Ctrl+C` / `Cmd+C` 然后 `Ctrl+V` / `Cmd+V` - 复制/粘贴文件
+- **右键 → Reveal in Explorer/Finder** - 在文件系统中打开
 
-### Quick Open
+### 快速打开
 
-Rapid file navigation for large knowledge bases:
+快速浏览大型知识库中的文件：
 
-**Quick Open Commands:**
+**快速打开命令：**
 
-- `Ctrl+P` / `Cmd+P` - Go to file
-- `Ctrl+Shift+O` / `Cmd+Shift+O` - Go to symbol (headings in Markdown)
-- `Ctrl+T` / `Cmd+T` - Go to symbol in workspace
-- `Ctrl+G` / `Cmd+G` - Go to line number
+- `Ctrl+P` / `Cmd+P` - 转到文件
+- `Ctrl+Shift+O` / `Cmd+Shift+O` - 转到符号（Markdown 中的标题）
+- `Ctrl+T` / `Cmd+T` - 转到工作区中的符号
+- `Ctrl+G` / `Cmd+G` - 转到指定行号
 
-**Search Patterns:**
+**搜索模式：**
 
+```text
+# 转到文件（Ctrl+P）
+machine       # 查找“machine-learning.md”
+proj alpha    # 查找“project-alpha.md”
+daily/2025    # 查找 daily/2025 文件夹中的文件
+
+# 转到符号（Ctrl+Shift+O）
+@introduction # 跳转到“Introduction”标题
+@#setup       # 跳转到“Setup”标题
+:50           # 跳转到第 50 行
 ```
-# Go to File (Ctrl+P)
-machine       # Finds "machine-learning.md"
-proj alpha    # Finds "project-alpha.md"
-daily/2025    # Finds files in daily/2025 folder
 
-# Go to Symbol (Ctrl+Shift+O)
-@introduction # Jump to "Introduction" heading
-@#setup       # Jump to "Setup" heading
-:50           # Go to line 50
-```
+## 搜索和发现
 
-## Search and Discovery
+### 全局搜索
 
-### Global Search
+在整个知识库中查找内容：
 
-Find content across your entire knowledge base:
+**搜索界面（`Ctrl+Shift+F` / `Cmd+Shift+F`）：**
 
-**Search Interface (`Ctrl+Shift+F` / `Cmd+Shift+F`):**
+- **搜索框** - 输入查询内容
+- **替换框** - 使用替换箭头切换
+- **包含/排除模式** - 按文件类型或文件夹筛选
+- **区分大小写** - 区分大小写进行搜索
+- **匹配整个单词** - 精确匹配单词
+- **使用正则表达式** - 使用高级模式匹配
 
-- **Search box** - Enter your query
-- **Replace box** - Toggle with replace arrow
-- **Include/Exclude patterns** - Filter by file types or folders
-- **Match case** - Case-sensitive search
-- **Match whole word** - Exact word matching
-- **Use regular expression** - Advanced pattern matching
+### 时间线视图
 
-### Timeline View
+跟踪笔记随时间发生的变化：
 
-Track changes to your notes over time:
+**访问时间线：**
 
-**Accessing Timeline:**
+1. **打开资源管理器面板**
+2. 在底部**展开“Timeline”部分**
+3. **选择一个文件**以查看其变更历史
+4. **点击时间线条目**以查看差异视图
 
-1. **Open Explorer panel**
-2. **Expand "Timeline" section** at bottom
-3. **Select a file** to see its change history
-4. **Click timeline entries** to see diff views
+**时间线功能：**
 
-**Timeline Features:**
+- **Git 提交**显示笔记的修改时间
+- **文件保存**记录编辑会话
+- **差异视图**突出显示修改内容
+- **还原点**用于恢复以前的版本
 
-- **Git commits** show when notes were changed
-- **File saves** track editing sessions
-- **Diff views** highlight what changed
-- **Restore points** for recovering previous versions
+### 大纲视图
 
-### Outline View
+使用层级结构浏览长篇笔记：
 
-Navigate long notes with hierarchical structure:
+**大纲面板：**
 
-**Outline Panel:**
+1. **在资源管理器中启用**（展开“Outline”部分）
+2. **显示当前笔记的标题层级**
+3. **点击标题**跳转到相应章节
+4. 在大纲中**折叠/展开**章节
 
-1. **Enable in Explorer** (expand "Outline" section)
-2. **Shows heading hierarchy** for current note
-3. **Click headings** to jump to sections
-4. **Collapse/expand** sections in outline
+## 版本控制集成
 
-## Version Control Integration
+### Git 集成
 
-### Git Integration
+跟踪知识库的变更：
 
-Track changes to your knowledge base:
+**源代码管理面板：**
 
-**Source Control Panel:**
+- **查看更改** - 查看已修改的文件
+- **暂存更改** - 点击 `+` 暂存文件
+- **提交更改** - 输入提交消息并提交
+- **同步更改** - 与远程仓库推送/拉取
 
-- **View changes** - See modified files
-- **Stage changes** - Click `+` to stage files
-- **Commit changes** - Enter message and commit
-- **Sync changes** - Push/pull from remote
+**笔记的 Git 工作流：**
 
-**Git Workflow for Notes:**
+1. **编写和编辑**笔记
+2. 在源代码管理面板中**查看更改**
+3. **暂存相关文件**以便提交
+4. **编写有意义的提交消息**
+5. **提交并推送**以备份或共享
 
-1. **Write and edit** your notes
-2. **Review changes** in Source Control panel
-3. **Stage relevant files** for commit
-4. **Write meaningful commit message**
-5. **Commit and push** to backup/share
+**实用的 Git 功能：**
 
-**Useful Git Features:**
+- **差异视图** - 准确查看修改内容
+- **文件历史** - 跟踪笔记随时间的演变
+- **分支管理** - 尝试不同的组织方式
+- **合并冲突** - 在协作时解决冲突
 
-- **Diff view** - See exactly what changed
-- **File history** - Track note evolution over time
-- **Branch management** - Experiment with different organization approaches
-- **Merge conflicts** - Resolve when collaborating
+## Markdown 功能
 
-## Markdown Features
+### 预览集成
 
-### Preview Integration
+在编辑的同时查看格式化后的笔记：
 
-View formatted notes alongside editing:
+**预览命令：**
 
-**Preview Commands:**
+- `Ctrl+Shift+V` / `Cmd+Shift+V` - 打开预览
+- `Ctrl+K V` / `Cmd+K V` - 在侧边打开预览
+- **锁定预览** - 将预览固定到指定文件
 
-- `Ctrl+Shift+V` / `Cmd+Shift+V` - Open preview
-- `Ctrl+K V` / `Cmd+K V` - Open preview to side
-- **Preview lock** - Pin preview to specific file
-
-**Diagrams (with Mermaid extension):**
+**图表（使用 Mermaid 扩展）：**
 
 ````markdown
 ```mermaid
@@ -235,18 +235,18 @@ graph TD
 ```
 ````
 
-## Extension Ecosystem
+## 扩展生态
 
-Extend Foam's capabilities with complementary extensions.
-Look for them in the [VS Code Marketplace](https://marketplace.visualstudio.com/).
+使用互补扩展扩展 Foam 的功能。
+你可以在 [VS Code Marketplace](https://marketplace.visualstudio.com/) 中查找这些扩展。
 
-## What's Next?
+## 接下来做什么
 
-With VS Code mastery, explore advanced Foam topics:
+掌握 VS Code 后，可以继续探索 Foam 的高级主题：
 
-1. **[[recommended-extensions]]** - See complementary extensions to improve your note taking experience
-2. **[[publish-to-github-pages]]** - Share your knowledge base
+1. **[[recommended-extensions]]** - 查看用于改善笔记体验的互补扩展
+2. **[[publish-to-github-pages]]** - 分享你的知识库
 
-[tags]: ../features/tags.md 'Tags'
-[recommended-extensions]: recommended-extensions.md 'Recommended Extensions'
-[publish-to-github-pages]: ../publishing/publish-to-github-pages.md 'GitHub Pages'
+[tags]: ../features/tags.md "Tags"
+[recommended-extensions]: recommended-extensions.md "Recommended Extensions"
+[publish-to-github-pages]: ../publishing/publish-to-github-pages.md "GitHub Pages"

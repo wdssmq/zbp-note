@@ -1,12 +1,12 @@
-# Paste Images from Clipboard
+# 从剪贴板粘贴图片
 
-By installing the [vscode-paste-image](https://github.com/mushanshitiancai/vscode-paste-image) extension, you can paste an image from the clipboard with `cmd+alt+v`.
+安装 [vscode-paste-image](https://github.com/mushanshitiancai/vscode-paste-image) 扩展后，可以使用 `cmd+alt+v` 从剪贴板粘贴图片。
 
-Images are automatically copied to the `/attachments` folder and a reference is added in the file where you pasted them.
+图片会自动复制到 `/attachments` 文件夹，并在粘贴图片的文件中添加引用。
 
-A prompt will ask you to confirm the name of the image, to disable it set `"pasteImage.showFilePathConfirmInputBox": false,` in the settings.
+系统会提示你确认图片名称。要禁用此提示，请在设置中添加 `"pasteImage.showFilePathConfirmInputBox": false,`。
 
-To change the location where the image is created, change the `pasteImage.path` property, e.g.:
+要更改图片的创建位置，请修改 `pasteImage.path` 属性，例如：
 
-- `${currentFileDir}`: save the image next to the file
-- `${currentFileDir}/images`: create an `images` directory next to the file and save the image there
+- `${currentFileDir}`：将图片保存在文件旁边
+- `${currentFileDir}/images`：在文件旁边创建 `images` 目录并将图片保存在其中
