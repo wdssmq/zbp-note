@@ -85,6 +85,9 @@ print_help() {
       Prefix to install croc into.  Directory must already exist.
       Default = /usr/local/bin ('\${PREFIX}/bin' on Termux for Android)
   
+  The installer will display the release archive URL and prompt for the
+  absolute path to the downloaded file before continuing.
+
   -h
       Prints this helpful message and exit."
 
@@ -260,6 +263,55 @@ download_file() {
   fi
   
   return "${rcode}"
+}
+
+#---  FUNCTION  ----------------------------------------------------------------
+#          NAME:  prompt_for_download
+#   DESCRIPTION:  Prompts for the path to a manually downloaded file and copies
+#                 it into the installer's temporary directory.
+#    PARAMETERS:  $1 = url of file to download
+#                 $2 = location to copy file into
+#                 $3 = expected filename
+#       RETURNS:  0 = File copied
+#                 1 = Prompt or copy failed
+#-------------------------------------------------------------------------------
+prompt_for_download() {
+  local url
+  local dir
+  local filename
+  local downloaded_file
+
+  url="${1}"
+  dir="${2}"
+  filename="${3}"
+
+  if [[ ! -r /dev/tty ]]; then
+    print_message "== Interactive terminal required to provide the downloaded file path" "error"
+    return 1
+  fi
+
+  printf 'Download this file:\n%s\n' "${url}"
+  printf 'Save it as %s, then enter its absolute path or containing directory to continue: ' "${filename}" >&2
+  if ! IFS= read -r downloaded_file < /dev/tty; then
+    print_message "== Failed to read the downloaded file path" "error"
+    return 1
+  fi
+
+  if [[ -d "${downloaded_file}" ]]; then
+    downloaded_file="${downloaded_file%/}/${filename}"
+  fi
+
+  if [[ "${downloaded_file}" != /* || ! -f "${downloaded_file}" || ! -r "${downloaded_file}" ]]; then
+    print_message "== The path must be an absolute path to a readable file or a directory containing it" "error"
+    return 1
+  fi
+
+  if ! cp "${downloaded_file}" "${dir}/${filename}"; then
+    print_message "== Failed to copy downloaded file into ${dir}" "error"
+    return 1
+  fi
+
+  return 0
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
@@ -690,19 +742,15 @@ main() {
   croc_checksum_file="${croc_bin_name}_v${croc_version}_checksums.txt"
   croc_url="${croc_base_url}/v${croc_version}/${croc_file}"
   croc_checksum_url="${croc_base_url}/v${croc_version}/${croc_checksum_file}"
-  echo "${croc_url}" "${tmpdir}" "${croc_file}"
-  download_file "${croc_url}" "${tmpdir}" "${croc_file}"
+  prompt_for_download "${croc_url}" "${tmpdir}" "${croc_file}"
   download_file_rcode="${?}"
   if [[ "${download_file_rcode}" == "0" ]]; then
-    print_message "== Downloaded croc archive into ${tmpdir}" "info"
+    print_message "== Copied croc archive into ${tmpdir}" "info"
   elif [[ "${download_file_rcode}" == "1" ]]; then
-    print_message "== Failed to download croc archive" "error"
-    exit 1
-  elif [[ "${download_file_rcode}" == "20" ]]; then
-    print_message "== Failed to locate curl or wget" "error"
+    print_message "== Failed to use the manually downloaded croc archive" "error"
     exit 1
   else
-    print_message "== Return code of download tool returned an unexpected value of ${download_file_rcode}" "error"
+    print_message "== Unexpected return code while reading the downloaded archive: ${download_file_rcode}" "error"
     exit 1
   fi
   download_file "${croc_checksum_url}" "${tmpdir}" "${croc_checksum_file}"
