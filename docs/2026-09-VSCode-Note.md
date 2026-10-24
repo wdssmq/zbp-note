@@ -6,7 +6,6 @@ Code Spell Checker - Visual Studio Marketplace
 
 [https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker "Code Spell Checker - Visual Studio Marketplace")
 
-
 ### 有啥用
 
 帮你在 VSCode 中检查英文拼写错误，虽然是弱提醒。
@@ -40,4 +39,16 @@ PHP Intelephense - Visual Studio Marketplace：
 /** @var array $lang */
 /** @var object $zbp */
 /** @var string $blogpath */
+```
+
+## 让 copilot 按指定的规则生成提交信息
+
+```json
+{
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"file": ".github/rule-for-git.md"
+		}
+	]
+}
 ```
